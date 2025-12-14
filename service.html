@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services & Solutions - GainGo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .page-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('images/bikealoneundertree.png');
+            background-size: cover;
+            background-position: center;
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-top: var(--nav-height);
+        }
+
+        .model-diagram {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .model-step {
+            background: var(--surface-color);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid var(--glass-border);
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+        }
+
+        .pricing-table {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .pricing-card {
+            background: var(--surface-color);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.1);
+        }
+
+        .pricing-header {
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 20px;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .pricing-features li {
+            margin-bottom: 10px;
+            color: var(--text-muted);
+        }
+
+        .pricing-features i {
+            color: var(--primary-color);
+            margin-right: 10px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: var(--surface-color);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid var(--glass-border);
+        }
+
+        .product-img {
+            height: 200px;
+            background: #222;
+            /* Placeholder for product image */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #555;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo-container">
+            <img src="images/GainGo-.png" alt="GainGo Logo" class="logo">
+            
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="service.html" class="active">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1 class="animate-fade-up">Services & Solutions</h1>
+            <p class="animate-fade-up delay-1">Comprehensive electric mobility ecosystem for Africa.</p>
+        </div>
+    </header>
+
+    <!-- Business Model -->
+    <section class="section-padding" style="padding: 80px 5%;">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 40px;">Our Business Model</h2>
+            <div class="model-diagram">
+                <div class="model-step">
+                    <i class="fas fa-motorcycle"
+                        style="font-size: 2rem; color: var(--secondary-color); margin-bottom: 15px;"></i>
+                    <h3>Vehicle Rental</h3>
+                    <p>Affordable electric motorcycles for riders.</p>
+                </div>
+                <div class="model-step">
+                    <i class="fas fa-battery-full"
+                        style="font-size: 2rem; color: var(--primary-color); margin-bottom: 15px;"></i>
+                    <h3>Battery Swapping</h3>
+                    <p>Quick and easy battery replacement service.</p>
+                </div>
+                <div class="model-step">
+                    <i class="fas fa-cloud"
+                        style="font-size: 2rem; color: var(--secondary-color); margin-bottom: 15px;"></i>
+                    <h3>Cloud Control</h3>
+                    <p>Real-time monitoring and management.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products -->
+    <section class="section-padding" style="padding: 80px 5%; background: var(--surface-color);">
+        <div class="container">
+            <h2 style="margin-bottom: 40px;">Our Vehicles</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-img"><i class="fas fa-motorcycle fa-3x"></i></div>
+                    <div class="product-info">
+                        <h3>Vehicle-XP</h3>
+                        <p>High performance for demanding routes.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img"><i class="fas fa-motorcycle fa-3x"></i></div>
+                    <div class="product-info">
+                        <h3>Vehicle-BOX</h3>
+                        <p>Optimized for cargo and delivery.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img"><i class="fas fa-motorcycle fa-3x"></i></div>
+                    <div class="product-info">
+                        <h3>Vehicle-Jin CG</h3>
+                        <p>Efficient urban commuter.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 50px;">
+                <h3>Battery Technology</h3>
+                <p style="color: var(--text-muted); margin-top: 10px;">
+                    <strong>Lithium Iron Phosphate:</strong> 1000 cycles warranty.<br>
+                    <strong>Lithium Nickel Cobalt Manganese:</strong> 700 cycles warranty.
+                </p>
+                <p style="color: var(--text-muted); margin-top: 10px;">
+                    We offer a regular maintenance plan to ensure optimal battery performance.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Strategy -->
+    <section class="section-padding" style="padding: 80px 5%;">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 40px;">Smart Pricing</h2>
+
+            <div class="pricing-table">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Standard Swap</h3>
+                        <div class="price">$3.00 <span>/ trip</span></div>
+                        <p>Base Price</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Standard Hours</li>
+                        <li><i class="fas fa-check"></i> Full Charge</li>
+                        <li><i class="fas fa-check"></i> 24/7 Support</li>
+                    </ul>
+                </div>
+
+                <div class="pricing-card featured">
+                    <div class="pricing-header">
+                        <h3>Off-Peak</h3>
+                        <div class="price">$2.10 <span>/ trip</span></div>
+                        <p>10 PM - 6 AM</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> <strong>30% Discount</strong></li>
+                        <li><i class="fas fa-check"></i> Avoid Congestion</li>
+                        <li><i class="fas fa-check"></i> Full Charge</li>
+                    </ul>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Peak Hours</h3>
+                        <div class="price">$3.60 <span>/ trip</span></div>
+                        <p>7-9 AM, 4:30-6:30 PM</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> High Demand</li>
+                        <li><i class="fas fa-check"></i> Priority Service</li>
+                        <li><i class="fas fa-check"></i> Full Charge</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="margin-top: 50px; text-align: center;">
+                <h3>Volume Discounts</h3>
+                <p style="color: var(--text-muted); max-width: 600px; margin: 20px auto;">
+                    Frequent riders save more! Get up to <strong>33.3% off</strong> with 30+ swaps per month.
+                </p>
+                <a href="contact.html" class="btn btn-primary">Start Saving Today</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <img src="images/GainGo-.png" alt="GainGo Logo" class="footer-logo">
+                <p>Ride to a better life.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="service.html">Services</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <p>Lusaka, Zambia</p>
+                <p>info@gaingo.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 GainGo. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

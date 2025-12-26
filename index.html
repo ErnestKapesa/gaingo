@@ -16,6 +16,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
     <style>
         :root {
             --primary-green: #2D5F3F;
@@ -40,6 +43,72 @@
             line-height: 1.6;
             overflow-x: hidden;
         }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+        
+        .animate-on-scroll {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        .animate-delay-1 { animation-delay: 0.1s; }
+        .animate-delay-2 { animation-delay: 0.2s; }
+        .animate-delay-3 { animation-delay: 0.3s; }
+        .animate-delay-4 { animation-delay: 0.4s; }
+        .animate-delay-5 { animation-delay: 0.5s; }
+        .animate-delay-6 { animation-delay: 0.6s; }
         
         /* Header & Navigation */
         header {
@@ -199,6 +268,7 @@
         
         .hero-image {
             position: relative;
+            animation: float 6s ease-in-out infinite;
         }
         
         .hero-image img {
@@ -264,10 +334,17 @@
             justify-content: center;
             margin-bottom: 1.5rem;
             font-size: 2rem;
+            color: var(--white);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 10px 30px rgba(45, 95, 63, 0.3);
         }
         
         .feature-card h3 {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             color: var(--primary-green);
             margin-bottom: 1rem;
             font-weight: 700;
@@ -275,7 +352,8 @@
         
         .feature-card p {
             color: var(--light-text);
-            line-height: 1.8;
+            line-height: 1.7;
+            font-size: 0.95rem;
         }
         
         /* How It Works Section */
@@ -309,6 +387,13 @@
             font-size: 2rem;
             font-weight: 800;
             margin: 0 auto 1.5rem;
+            box-shadow: 0 10px 30px rgba(255, 159, 90, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .step:hover .step-number {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(255, 159, 90, 0.4);
         }
         
         .step h3 {
@@ -320,6 +405,8 @@
         
         .step p {
             color: var(--light-text);
+            font-size: 0.95rem;
+            line-height: 1.6;
         }
         
         /* Why Gaingo Section */
@@ -360,15 +447,23 @@
         }
         
         .benefit-card h3 {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             margin-bottom: 1rem;
             color: var(--light-orange);
             font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .benefit-card h3 i {
+            font-size: 1.8rem;
         }
         
         .benefit-card p {
             color: rgba(255, 255, 255, 0.9);
-            line-height: 1.8;
+            line-height: 1.7;
+            font-size: 0.95rem;
         }
         
         /* Technology Section */
@@ -591,6 +686,7 @@
             justify-content: center;
             margin: 0 auto 1rem;
             font-size: 2rem;
+            color: var(--white);
             animation: pulse 2s infinite;
         }
         
@@ -648,6 +744,66 @@
             color: var(--white);
         }
         
+        /* Gallery Section */
+        .gallery-section {
+            padding: 6rem 2rem;
+            background: var(--light-bg);
+        }
+        
+        .gallery-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(45, 95, 63, 0.95), transparent);
+            padding: 2rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+        
+        .gallery-overlay h3 {
+            color: var(--white);
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+        
         /* Responsive Design */
         @media (max-width: 968px) {
             .hero-content,
@@ -700,11 +856,11 @@
     <section id="home" class="hero">
         <div class="hero-content">
             <div class="hero-text">
-                <h1>Gaingo</h1>
-                <div class="tagline">Zambia's #1 Battery Swapping Company</div>
-                <p><strong>The fastest, most reliable, and affordable way to power electric mobility in Zambia.</strong></p>
-                <p>Swap and Go in minutes! As Zambia's first and leading electric motorbike battery swapping company, we're revolutionizing how you ride. No more waiting hours to charge - just swap your battery and continue your journey instantly.</p>
-                <div class="hero-buttons">
+                <h1 class="animate-on-scroll">Gaingo</h1>
+                <div class="tagline animate-on-scroll animate-delay-1">Zambia's #1 Battery Swapping Company</div>
+                <p class="animate-on-scroll animate-delay-2"><strong>The fastest, most reliable, and affordable way to power electric mobility in Zambia.</strong></p>
+                <p class="animate-on-scroll animate-delay-3">Swap and Go in minutes! Zambia's first and leading electric motorbike battery swapping company.</p>
+                <div class="hero-buttons animate-on-scroll animate-delay-4">
                     <a href="#how-it-works" class="btn-primary">See How It Works</a>
                     <a href="#contact" class="btn-secondary">Get Started Today</a>
                 </div>
@@ -722,35 +878,47 @@
             <p>Zambia's pioneer and leader in electric motorbike battery swapping technology</p>
         </div>
         <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">⚡</div>
-                <h3>Swap in Minutes, Not Hours</h3>
-                <p>Forget waiting 4-8 hours for charging! Our revolutionary battery swapping takes less than 2 minutes. Swap your depleted battery for a fully charged one and get back on the road instantly.</p>
+            <div class="feature-card animate-on-scroll animate-delay-1">
+                <div class="feature-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h3>Swap in Minutes</h3>
+                <p>Revolutionary battery swapping in under 2 minutes. Get back on the road instantly.</p>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon">🏆</div>
+            <div class="feature-card animate-on-scroll animate-delay-2">
+                <div class="feature-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
                 <h3>Zambia's First & Leading</h3>
-                <p>Gaingo is Zambia's pioneering battery swapping company. We introduced this game-changing technology and continue to lead the electric mobility revolution across the nation.</p>
+                <p>Pioneering battery swapping technology across the nation.</p>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon">💰</div>
-                <h3>Most Affordable Solution</h3>
-                <p>Save up to 70% compared to petrol costs. Our battery swapping model eliminates expensive fuel bills and high electricity charges. Pay only for what you use.</p>
+            <div class="feature-card animate-on-scroll animate-delay-3">
+                <div class="feature-icon">
+                    <i class="fas fa-piggy-bank"></i>
+                </div>
+                <h3>Most Affordable</h3>
+                <p>Save up to 70% compared to petrol. Pay only for what you use.</p>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon">🔋</div>
+            <div class="feature-card animate-on-scroll animate-delay-4">
+                <div class="feature-icon">
+                    <i class="fas fa-battery-full"></i>
+                </div>
                 <h3>Always Fully Charged</h3>
-                <p>Every battery swap gives you 100% charge. Our smart swapping stations ensure you always get a fully charged, tested, and optimized battery ready for maximum range.</p>
+                <p>Every swap gives you 100% charge for maximum range.</p>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon">📍</div>
-                <h3>Growing Network Across Zambia</h3>
-                <p>Access our expanding network of battery swapping stations throughout Zambia. We're strategically located in key areas to ensure you're never far from a swap station.</p>
+            <div class="feature-card animate-on-scroll animate-delay-5">
+                <div class="feature-icon">
+                    <i class="fas fa-map-marked-alt"></i>
+                </div>
+                <h3>Growing Network</h3>
+                <p>Expanding stations throughout Zambia for your convenience.</p>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon">🚀</div>
+            <div class="feature-card animate-on-scroll animate-delay-6">
+                <div class="feature-icon">
+                    <i class="fas fa-rocket"></i>
+                </div>
                 <h3>Zero Downtime</h3>
-                <p>With Gaingo's battery swapping, your motorbike is always ready. No more lost income waiting for charging. Swap and go - maximize your productivity every single day.</p>
+                <p>Maximize productivity with instant battery swapping.</p>
             </div>
         </div>
     </section>
@@ -762,25 +930,25 @@
             <p>Swap and Go in minutes - It's that simple!</p>
         </div>
         <div class="steps-container">
-            <div class="step">
+            <div class="step animate-on-scroll animate-delay-1">
                 <div class="step-number">1</div>
-                <h3>Find a Gaingo Station</h3>
-                <p>Use our mobile app to locate the nearest Gaingo battery swapping station. Real-time availability shows you exactly which stations have charged batteries ready.</p>
+                <h3>Find Station</h3>
+                <p>Locate nearest Gaingo station with real-time availability.</p>
             </div>
-            <div class="step">
+            <div class="step animate-on-scroll animate-delay-2">
                 <div class="step-number">2</div>
-                <h3>Remove Your Empty Battery</h3>
-                <p>Simply unlock your battery compartment and slide out the depleted battery. Our standardized design makes it effortless - no tools needed!</p>
+                <h3>Remove Battery</h3>
+                <p>Unlock and slide out your depleted battery effortlessly.</p>
             </div>
-            <div class="step">
+            <div class="step animate-on-scroll animate-delay-3">
                 <div class="step-number">3</div>
-                <h3>Swap for a Fully Charged One</h3>
-                <p>Grab a 100% charged battery from the Gaingo station and insert it into your motorbike. It clicks securely into place - you're ready to ride!</p>
+                <h3>Swap for Charged</h3>
+                <p>Insert a 100% charged battery - clicks securely in place.</p>
             </div>
-            <div class="step">
+            <div class="step animate-on-scroll animate-delay-4">
                 <div class="step-number">4</div>
-                <h3>Ride Away Instantly</h3>
-                <p>That's it! The entire battery swapping process takes under 2 minutes. Continue your journey with zero downtime and maximum range.</p>
+                <h3>Ride Away</h3>
+                <p>Under 2 minutes total. Continue your journey instantly!</p>
             </div>
         </div>
     </section>
@@ -792,29 +960,29 @@
             <p>We're not just a company - we're the battery swapping pioneers transforming Zambia's electric mobility</p>
         </div>
         <div class="benefits-grid">
-            <div class="benefit-card">
-                <h3>🥇 Zambia's Battery Swapping Pioneer</h3>
-                <p>Gaingo introduced battery swapping to Zambia. We're the first, the largest, and the most trusted electric motorbike battery swapping company in the country. When you think battery swapping, think Gaingo.</p>
+            <div class="benefit-card animate-on-scroll animate-delay-1">
+                <h3><i class="fas fa-medal"></i> Zambia's Pioneer</h3>
+                <p>First and most trusted battery swapping company in Zambia.</p>
             </div>
-            <div class="benefit-card">
-                <h3>⚡ Fastest Swapping in Zambia</h3>
-                <p>Our optimized battery swapping process takes under 2 minutes - faster than filling up with petrol! No other solution in Zambia comes close to our speed and efficiency.</p>
+            <div class="benefit-card animate-on-scroll animate-delay-2">
+                <h3><i class="fas fa-tachometer-alt"></i> Fastest Swapping</h3>
+                <p>Under 2 minutes - faster than filling up with petrol!</p>
             </div>
-            <div class="benefit-card">
-                <h3>💵 Most Affordable Electric Solution</h3>
-                <p>Gaingo's battery swapping is the most cost-effective way to power electric motorbikes in Zambia. Save money on fuel, electricity bills, and battery ownership costs.</p>
+            <div class="benefit-card animate-on-scroll animate-delay-3">
+                <h3><i class="fas fa-dollar-sign"></i> Most Affordable</h3>
+                <p>The most cost-effective electric solution in Zambia.</p>
             </div>
-            <div class="benefit-card">
-                <h3>🔋 Superior Battery Technology</h3>
-                <p>Our advanced battery swapping system uses premium lithium-ion batteries with smart management. Every swap guarantees optimal performance, safety, and maximum range.</p>
+            <div class="benefit-card animate-on-scroll animate-delay-4">
+                <h3><i class="fas fa-microchip"></i> Superior Technology</h3>
+                <p>Premium batteries with smart management systems.</p>
             </div>
-            <div class="benefit-card">
-                <h3>🌍 Driving Zambia's Green Future</h3>
-                <p>Gaingo's battery swapping eliminates emissions and reduces Zambia's carbon footprint. Join thousands of riders making our country cleaner and more sustainable.</p>
+            <div class="benefit-card animate-on-scroll animate-delay-5">
+                <h3><i class="fas fa-leaf"></i> Green Future</h3>
+                <p>Driving Zambia towards sustainable transportation.</p>
             </div>
-            <div class="benefit-card">
-                <h3>📈 Proven Reliability</h3>
-                <p>Thousands of successful battery swaps daily. Gaingo's proven track record makes us Zambia's most reliable electric motorbike battery swapping provider.</p>
+            <div class="benefit-card animate-on-scroll animate-delay-6">
+                <h3><i class="fas fa-check-circle"></i> Proven Reliability</h3>
+                <p>Thousands of successful swaps daily across Zambia.</p>
             </div>
         </div>
     </section>
@@ -822,34 +990,68 @@
     <!-- Technology Section -->
     <section id="technology" class="technology">
         <div class="tech-content">
-            <div class="tech-image">
+            <div class="tech-image animate-on-scroll">
                 <img src="images/Gaingo-Battery-Charging-Station.jpg" alt="Gaingo Charging Station">
             </div>
-            <div class="tech-text">
-                <h2>Revolutionary Battery Swapping Technology</h2>
-                <p><strong>Gaingo's battery swapping system is transforming electric mobility in Zambia.</strong> Our cutting-edge technology combines speed, reliability, and affordability to deliver the ultimate electric motorbike experience.</p>
-                <p>Unlike traditional charging that takes hours, Gaingo's battery swapping gets you back on the road in minutes. Our smart infrastructure ensures every battery is fully charged, tested, and ready to deliver maximum performance.</p>
+            <div class="tech-text animate-on-scroll animate-delay-2">
+                <h2>Revolutionary Battery Swapping</h2>
+                <p><strong>Transforming electric mobility in Zambia.</strong> Speed, reliability, and affordability combined.</p>
+                <p>Unlike traditional charging that takes hours, Gaingo gets you back on the road in minutes.</p>
                 <div class="tech-highlights">
                     <div class="highlight-item">
-                        <div class="highlight-icon">✓</div>
-                        <div><strong>Instant Swapping:</strong> Complete battery exchange in under 2 minutes</div>
+                        <div class="highlight-icon"><i class="fas fa-check"></i></div>
+                        <div><strong>Instant Swapping:</strong> Under 2 minutes</div>
                     </div>
                     <div class="highlight-item">
-                        <div class="highlight-icon">✓</div>
-                        <div><strong>100% Charged:</strong> Every swap gives you a fully charged battery</div>
+                        <div class="highlight-icon"><i class="fas fa-check"></i></div>
+                        <div><strong>100% Charged:</strong> Every swap</div>
                     </div>
                     <div class="highlight-item">
-                        <div class="highlight-icon">✓</div>
-                        <div><strong>Smart Monitoring:</strong> Real-time battery health and performance tracking</div>
+                        <div class="highlight-icon"><i class="fas fa-check"></i></div>
+                        <div><strong>Smart Monitoring:</strong> Real-time tracking</div>
                     </div>
                     <div class="highlight-item">
-                        <div class="highlight-icon">✓</div>
-                        <div><strong>Safe & Reliable:</strong> Rigorous testing and quality control for every battery</div>
+                        <div class="highlight-icon"><i class="fas fa-check"></i></div>
+                        <div><strong>Safe & Reliable:</strong> Rigorous testing</div>
                     </div>
                     <div class="highlight-item">
-                        <div class="highlight-icon">✓</div>
-                        <div><strong>Nationwide Network:</strong> Growing coverage across Zambia</div>
+                        <div class="highlight-icon"><i class="fas fa-check"></i></div>
+                        <div><strong>Nationwide:</strong> Growing coverage</div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Gallery Section -->
+    <section class="gallery-section">
+        <div class="section-header">
+            <h2>See Gaingo in Action</h2>
+            <p>Experience the future of electric mobility</p>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item animate-on-scroll animate-delay-1">
+                <img src="images/Gaingo-Battery-Charging.jpg" alt="Battery Charging">
+                <div class="gallery-overlay">
+                    <h3>Smart Charging</h3>
+                </div>
+            </div>
+            <div class="gallery-item animate-on-scroll animate-delay-2">
+                <img src="images/Gaingo-Charging-Outside.jpg" alt="Outdoor Charging">
+                <div class="gallery-overlay">
+                    <h3>Accessible Stations</h3>
+                </div>
+            </div>
+            <div class="gallery-item animate-on-scroll animate-delay-3">
+                <img src="images/Gaingo-Market-Area-Delivery.jpg" alt="Market Delivery">
+                <div class="gallery-overlay">
+                    <h3>Delivery Services</h3>
+                </div>
+            </div>
+            <div class="gallery-item animate-on-scroll animate-delay-4">
+                <img src="images/Gaingo-App.png" alt="Gaingo Mobile App">
+                <div class="gallery-overlay">
+                    <h3>Mobile App</h3>
                 </div>
             </div>
         </div>
@@ -894,11 +1096,13 @@
     <!-- LinkedIn Popup -->
     <div class="linkedin-popup" id="linkedinPopup">
         <button class="linkedin-popup-close" onclick="closeLinkedInPopup()">&times;</button>
-        <div class="linkedin-icon">🔗</div>
+        <div class="linkedin-icon">
+            <i class="fab fa-linkedin-in"></i>
+        </div>
         <h3>Stay Connected!</h3>
-        <p>Follow Gaingo on LinkedIn for the latest updates on electric mobility, sustainability, and innovation.</p>
+        <p>Follow Gaingo on LinkedIn for updates on electric mobility and innovation.</p>
         <a href="https://www.linkedin.com/company/gaingoev/" target="_blank" rel="noopener noreferrer" class="linkedin-btn" onclick="followedLinkedIn()">
-            Follow Us on LinkedIn
+            <i class="fab fa-linkedin"></i> Follow Us on LinkedIn
         </a>
         <span class="linkedin-later" onclick="closeLinkedInPopup()">Maybe Later</span>
     </div>

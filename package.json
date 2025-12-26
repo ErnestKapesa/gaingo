@@ -2,9 +2,7 @@
   "name": "gaingo-website",
   "version": "1.0.0",
   "description": "Gaingo - Leading Electric Motorbike Battery Swapping Platform",
-  "scripts": {
-    "build": "echo 'Static site - no build needed'"
-  },
+  "scripts": {},
   "keywords": [
     "electric",
     "motorbike",

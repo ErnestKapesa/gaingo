@@ -1150,11 +1150,11 @@
                 <h3>Contact</h3>
                 <p>Email: <a href="mailto:customercare@gmail.com">customercare@gmail.com</a></p>
                 <p>Phone: <a href="tel:+260779168888">+260 77916 8888</a></p>
-                <p>Follow us on <a href="https://www.linkedin.com/company/gaingoev/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+                <p>Follow us on <a href="https://www.linkedin.com/company/gaingoev/" target="_blank" rel="noopener noreferrer" onclick="openLinkedInPopup(); return false;">LinkedIn</a></p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 Gaingo - Zambia's leading battery swapping motorbike | Swap and Go in Minutes</p>
+            <p>&copy; 2025 Gaingo - Zambia's leading battery swapping motorbike | Swap and Go in Minutes</p>
         </div>
     </footer>
 
@@ -1179,6 +1179,12 @@
         
         function followedLinkedIn() {
             localStorage.setItem('gaingo_linkedin_shown', 'true');
+        }
+        
+        // Function to manually show popup (can be called from anywhere)
+        function openLinkedInPopup() {
+            const popup = document.getElementById('linkedinPopup');
+            popup.classList.add('show');
         }
         
         // Show popup on page load

@@ -829,8 +829,14 @@
                 gap: 2rem;
             }
             
+            .hero {
+                min-height: auto;
+                padding: 2rem 0;
+            }
+            
             .hero-text .tagline {
-                font-size: 1.8rem;
+                font-size: 1.6rem;
+                line-height: 1.3;
             }
             
             .hero-text p {
@@ -846,29 +852,47 @@
             .btn-secondary {
                 width: 100%;
                 text-align: center;
+                padding: 1rem 1.5rem;
             }
             
             .nav-links {
                 display: none;
             }
             
+            .logo img {
+                height: 40px;
+            }
+            
             .section-header h2 {
-                font-size: 2rem;
+                font-size: 1.8rem;
+                line-height: 1.3;
+            }
+            
+            .section-header p {
+                font-size: 1rem;
             }
             
             .features-grid,
             .benefits-grid,
             .steps-container {
                 grid-template-columns: 1fr;
-                gap: 2rem;
+                gap: 1.5rem;
+            }
+            
+            .feature-card,
+            .benefit-card,
+            .step {
+                padding: 1.5rem;
             }
             
             .impact-stats {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
             }
             
             .gallery-grid {
                 grid-template-columns: 1fr;
+                gap: 1.5rem;
             }
             
             .linkedin-popup {
@@ -876,6 +900,7 @@
                 right: 5%;
                 left: 5%;
                 bottom: 10px;
+                padding: 1.5rem;
             }
             
             .how-it-works-visual {
@@ -886,24 +911,53 @@
                 gap: 0.8rem;
             }
             
+            .highlight-item {
+                padding: 0.8rem;
+            }
+            
             .footer-content {
                 grid-template-columns: 1fr;
                 gap: 2rem;
+            }
+            
+            .tech-badges {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .tech-badge {
+                font-size: 0.8rem;
+                padding: 0.4rem 0.8rem;
+            }
+            
+            /* Hide decorative elements on mobile for performance */
+            .electric-pattern,
+            .lightning-accent,
+            .energy-lines,
+            .tech-grid {
+                display: none;
             }
         }
         
         @media (max-width: 480px) {
             .hero-text .tagline {
-                font-size: 1.5rem;
+                font-size: 1.4rem;
             }
             
             .section-header h2 {
-                font-size: 1.6rem;
+                font-size: 1.5rem;
             }
             
             .feature-card,
             .benefit-card {
-                padding: 1.5rem;
+                padding: 1.2rem;
+            }
+            
+            .feature-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
             }
             
             .stat-number {
@@ -913,91 +967,86 @@
             .impact-stats {
                 grid-template-columns: 1fr;
             }
+            
+            .step-number {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+            
+            nav {
+                padding: 1rem;
+            }
         }
         
         /* Tech Decoration Elements */
         .tech-decoration {
             position: absolute;
             pointer-events: none;
-            opacity: 0.1;
+            opacity: 0.05;
             z-index: 0;
         }
         
-        .circuit-pattern {
+        /* Electric Bolt Pattern */
+        .electric-pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5 L35 25 L45 25 L25 45 L30 30 L20 30 Z' fill='%234A9B6B' opacity='0.1'/%3E%3C/svg%3E");
+            background-size: 120px 120px;
+            opacity: 0.08;
+            pointer-events: none;
+        }
+        
+        /* Lightning Accent */
+        .lightning-accent {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(ellipse at center, rgba(255, 159, 90, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(40px);
+            pointer-events: none;
+            animation: pulse-soft 6s ease-in-out infinite;
+        }
+        
+        @keyframes pulse-soft {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.05); }
+        }
+        
+        /* Energy Lines */
+        .energy-lines {
             position: absolute;
             width: 100%;
             height: 100%;
             background-image: 
-                linear-gradient(90deg, var(--primary-green) 1px, transparent 1px),
-                linear-gradient(var(--primary-green) 1px, transparent 1px);
-            background-size: 50px 50px;
-            opacity: 0.03;
+                linear-gradient(45deg, transparent 48%, rgba(74, 155, 107, 0.05) 49%, rgba(74, 155, 107, 0.05) 51%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(255, 159, 90, 0.05) 49%, rgba(255, 159, 90, 0.05) 51%, transparent 52%);
+            background-size: 100px 100px;
+            opacity: 0.5;
             pointer-events: none;
         }
         
-        .tech-glow {
+        /* Minimal Tech Grid */
+        .tech-grid {
             position: absolute;
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            background: radial-gradient(circle, var(--primary-orange) 0%, transparent 70%);
-            opacity: 0.15;
-            filter: blur(60px);
-            animation: pulse-glow 4s ease-in-out infinite;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(74, 155, 107, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(74, 155, 107, 0.03) 1px, transparent 1px);
+            background-size: 80px 80px;
+            pointer-events: none;
         }
         
-        @keyframes pulse-glow {
-            0%, 100% { opacity: 0.15; transform: scale(1); }
-            50% { opacity: 0.25; transform: scale(1.1); }
-        }
-        
-        .tech-dots {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: var(--primary-orange);
-            border-radius: 50%;
-            box-shadow: 
-                50px 50px 0 var(--primary-green),
-                100px 100px 0 var(--primary-orange),
-                150px 50px 0 var(--primary-green),
-                200px 100px 0 var(--primary-orange);
-            opacity: 0.2;
-            animation: float-dots 8s ease-in-out infinite;
-        }
-        
-        @keyframes float-dots {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-        
-        /* Parallax Effect */
-        .parallax-layer {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        /* Hover Tilt Effect */
-        .tilt-card {
-            transition: transform 0.3s ease;
-        }
-        
-        .tilt-card:hover {
-            transform: perspective(1000px) rotateX(2deg) rotateY(2deg);
-        }
-        
-        /* Data Visualization Lines */
-        .data-line {
-            position: absolute;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--primary-orange), transparent);
-            opacity: 0.3;
-            animation: data-flow 3s linear infinite;
-        }
-        
-        @keyframes data-flow {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
+        /* Remove old effects */
+        .circuit-pattern,
+        .tech-glow,
+        .tech-dots,
+        .data-line,
+        .scan-line {
+            display: none;
         }
         
         /* Tech Badge */
@@ -1022,25 +1071,30 @@
         /* Glowing Border Effect */
         .glow-border {
             position: relative;
-            border: 2px solid transparent;
-            background: linear-gradient(var(--white), var(--white)) padding-box,
-                        linear-gradient(135deg, var(--primary-green), var(--primary-orange)) border-box;
+            border: 1px solid rgba(74, 155, 107, 0.2);
+            background: var(--white);
             border-radius: 20px;
+            transition: all 0.3s ease;
         }
         
-        /* Scan Line Effect */
-        .scan-line {
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--primary-orange), transparent);
-            animation: scan 4s linear infinite;
-            opacity: 0.5;
+        .glow-border:hover {
+            border-color: var(--primary-orange);
+            box-shadow: 0 0 20px rgba(255, 159, 90, 0.2);
         }
         
-        @keyframes scan {
-            0% { top: 0; }
-            100% { top: 100%; }
+        /* Parallax Effect */
+        .parallax-layer {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Hover Tilt Effect */
+        .tilt-card {
+            transition: transform 0.3s ease;
+        }
+        
+        .tilt-card:hover {
+            transform: translateY(-5px);
         }
     </style>
 </head>
@@ -1063,9 +1117,9 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero parallax-layer">
-        <div class="circuit-pattern"></div>
-        <div class="tech-glow" style="top: 10%; left: 10%;"></div>
-        <div class="tech-glow" style="bottom: 10%; right: 10%;"></div>
+        <div class="electric-pattern"></div>
+        <div class="lightning-accent" style="top: 15%; left: 5%;"></div>
+        <div class="lightning-accent" style="bottom: 20%; right: 10%;"></div>
         <div class="hero-content">
             <div class="hero-text">
                 <div class="tagline animate-on-scroll">Zambia's leading battery swapping motorbike</div>
@@ -1089,14 +1143,13 @@
 
     <!-- Features Section -->
     <section class="features parallax-layer">
-        <div class="circuit-pattern"></div>
+        <div class="tech-grid"></div>
         <div class="section-header">
             <h2>Battery Swapping is Gaingo. Gaingo is Battery Swapping.</h2>
             <p>Zambia's pioneer and leader in electric motorbike battery swapping technology</p>
         </div>
         <div class="features-grid">
             <div class="feature-card animate-on-scroll animate-delay-1 tilt-card glow-border">
-                <div class="scan-line"></div>
                 <div class="feature-icon">
                     <i class="fas fa-bolt"></i>
                 </div>
@@ -1104,7 +1157,6 @@
                 <p>Revolutionary battery swapping in under 2 minutes. Get back on the road instantly.</p>
             </div>
             <div class="feature-card animate-on-scroll animate-delay-2 tilt-card glow-border">
-                <div class="scan-line"></div>
                 <div class="feature-icon">
                     <i class="fas fa-trophy"></i>
                 </div>
@@ -1112,7 +1164,6 @@
                 <p>Pioneering battery swapping technology across the nation.</p>
             </div>
             <div class="feature-card animate-on-scroll animate-delay-3 tilt-card glow-border">
-                <div class="scan-line"></div>
                 <div class="feature-icon">
                     <i class="fas fa-piggy-bank"></i>
                 </div>
@@ -1120,7 +1171,6 @@
                 <p>Save up to 70% compared to petrol. Pay only for what you use.</p>
             </div>
             <div class="feature-card animate-on-scroll animate-delay-4 tilt-card glow-border">
-                <div class="scan-line"></div>
                 <div class="feature-icon">
                     <i class="fas fa-battery-full"></i>
                 </div>
@@ -1128,7 +1178,6 @@
                 <p>Every swap gives you 100% charge for maximum range.</p>
             </div>
             <div class="feature-card animate-on-scroll animate-delay-5 tilt-card glow-border">
-                <div class="scan-line"></div>
                 <div class="feature-icon">
                     <i class="fas fa-map-marked-alt"></i>
                 </div>
@@ -1136,7 +1185,6 @@
                 <p>Expanding stations throughout Zambia for your convenience.</p>
             </div>
             <div class="feature-card animate-on-scroll animate-delay-6 tilt-card glow-border">
-                <div class="scan-line"></div>
                 <div class="feature-icon">
                     <i class="fas fa-rocket"></i>
                 </div>
@@ -1218,8 +1266,8 @@
 
     <!-- Technology Section -->
     <section id="technology" class="technology parallax-layer">
-        <div class="circuit-pattern"></div>
-        <div class="tech-glow" style="top: 20%; right: 10%;"></div>
+        <div class="energy-lines"></div>
+        <div class="lightning-accent" style="top: 30%; right: 5%;"></div>
         <div class="tech-content">
             <div class="tech-image animate-on-scroll">
                 <img src="images/Easy-Charge-Stations.jpg" alt="Easy Gaingo Charging Stations">

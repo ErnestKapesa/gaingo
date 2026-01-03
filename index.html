@@ -740,8 +740,8 @@
             background: linear-gradient(135deg, var(--primary-green), var(--light-green));
             border-radius: 20px;
             padding: 2.5rem 2rem 2rem;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            z-index: 99999;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            z-index: 100000;
             transition: bottom 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
             color: var(--white);
         }
@@ -852,10 +852,20 @@
             cursor: pointer;
             font-size: 0.9rem;
             transition: color 0.3s ease;
+            padding: 0.5rem;
         }
         
         .linkedin-later:hover {
             color: var(--white);
+        }
+        
+        /* Ensure popup is above WhatsApp widget */
+        .elfsight-app-e5f1f81a-641e-4ab3-973b-bc244133b9ac {
+            z-index: 9999 !important;
+        }
+        
+        .linkedin-popup {
+            z-index: 100000 !important;
         }
         
         /* Gallery Section */
@@ -1504,7 +1514,7 @@
 
     <!-- LinkedIn Popup -->
     <div class="linkedin-popup" id="linkedinPopup">
-        <button class="linkedin-popup-close" onclick="closeLinkedInPopup()" type="button" aria-label="Close">&times;</button>
+        <button class="linkedin-popup-close" type="button" aria-label="Close">&times;</button>
         <div class="linkedin-icon">
             <i class="fab fa-linkedin-in"></i>
         </div>
@@ -1513,7 +1523,7 @@
         <a href="https://www.linkedin.com/company/gaingoev/" target="_blank" rel="noopener noreferrer" class="linkedin-btn" onclick="followedLinkedIn()">
             <i class="fab fa-linkedin"></i> Follow Us on LinkedIn
         </a>
-        <span class="linkedin-later" onclick="closeLinkedInPopup()">Maybe Later</span>
+        <span class="linkedin-later">Maybe Later</span>
     </div>
 
     <!-- Floating Social Media Bar -->
@@ -1602,24 +1612,59 @@
             }
         }
         
-        function closeLinkedInPopup() {
+        function closeLinkedInPopup(event) {
+            if (event) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
             const popup = document.getElementById('linkedinPopup');
-            popup.classList.remove('show');
-            localStorage.setItem('gaingo_linkedin_shown', 'true');
+            if (popup) {
+                popup.classList.remove('show');
+                localStorage.setItem('gaingo_linkedin_shown', 'true');
+            }
+            return false;
         }
         
         function followedLinkedIn() {
             localStorage.setItem('gaingo_linkedin_shown', 'true');
+            const popup = document.getElementById('linkedinPopup');
+            if (popup) {
+                popup.classList.remove('show');
+            }
         }
         
         // Function to manually show popup (can be called from anywhere)
         function openLinkedInPopup() {
             const popup = document.getElementById('linkedinPopup');
-            popup.classList.add('show');
+            if (popup) {
+                popup.classList.add('show');
+            }
         }
         
         // Show popup on page load
         window.addEventListener('load', showLinkedInPopup);
+        
+        // Add click event listeners after DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            const closeBtn = document.querySelector('.linkedin-popup-close');
+            const laterBtn = document.querySelector('.linkedin-later');
+            
+            if (closeBtn) {
+                closeBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    closeLinkedInPopup(e);
+                });
+            }
+            
+            if (laterBtn) {
+                laterBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    closeLinkedInPopup(e);
+                });
+            }
+        });
         
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {

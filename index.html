@@ -734,14 +734,14 @@
         /* LinkedIn Popup */
         .linkedin-popup {
             position: fixed;
-            bottom: -300px;
+            bottom: -400px;
             right: 30px;
             width: 350px;
             background: linear-gradient(135deg, var(--primary-green), var(--light-green));
             border-radius: 20px;
-            padding: 2rem;
+            padding: 2.5rem 2rem 2rem;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            z-index: 10000;
+            z-index: 99999;
             transition: bottom 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
             color: var(--white);
         }
@@ -760,30 +760,34 @@
         
         .linkedin-popup-close {
             position: absolute;
-            top: 15px;
-            right: 15px;
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
+            top: 10px;
+            right: 10px;
+            background: rgba(255, 255, 255, 0.3);
+            border: 2px solid var(--white);
             color: var(--white);
-            width: 30px;
-            height: 30px;
+            width: 35px;
+            height: 35px;
             border-radius: 50%;
             cursor: pointer;
-            font-size: 1.2rem;
+            font-size: 1.5rem;
+            font-weight: bold;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.3s ease;
-            z-index: 10;
+            z-index: 100;
+            line-height: 1;
         }
         
         .linkedin-popup-close:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: rotate(90deg);
+            background: rgba(255, 255, 255, 0.5);
+            transform: rotate(90deg) scale(1.1);
         }
         
         .linkedin-popup-close:active {
-            transform: scale(0.95);
+            transform: scale(0.9);
+            background: var(--white);
+            color: var(--primary-green);
         }
         
         .linkedin-icon {
@@ -1032,9 +1036,44 @@
                 display: none;
             }
             
-            /* Hide floating social on mobile */
+            /* Show floating social on mobile at bottom */
             .floating-social {
-                display: none;
+                display: flex;
+                flex-direction: row;
+                position: fixed;
+                bottom: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                top: auto;
+                background: rgba(45, 95, 63, 0.95);
+                padding: 0.8rem;
+                border-radius: 50px;
+                gap: 0.8rem;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            }
+            
+            .floating-social-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
+            }
+            
+            .floating-social-icon:hover {
+                transform: scale(1.1);
+            }
+            
+            .linkedin-popup {
+                width: 90%;
+                right: 5%;
+                left: 5%;
+                bottom: 10px;
+                padding: 2rem 1.5rem 1.5rem;
+            }
+            
+            .linkedin-popup-close {
+                width: 32px;
+                height: 32px;
+                font-size: 1.3rem;
             }
         }
         
@@ -1465,7 +1504,7 @@
 
     <!-- LinkedIn Popup -->
     <div class="linkedin-popup" id="linkedinPopup">
-        <button class="linkedin-popup-close" onclick="closeLinkedInPopup()">&times;</button>
+        <button class="linkedin-popup-close" onclick="closeLinkedInPopup()" type="button" aria-label="Close">&times;</button>
         <div class="linkedin-icon">
             <i class="fab fa-linkedin-in"></i>
         </div>

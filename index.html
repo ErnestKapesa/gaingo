@@ -686,11 +686,16 @@
             align-items: center;
             justify-content: center;
             transition: all 0.3s ease;
+            z-index: 10;
         }
         
         .linkedin-popup-close:hover {
             background: rgba(255, 255, 255, 0.3);
             transform: rotate(90deg);
+        }
+        
+        .linkedin-popup-close:active {
+            transform: scale(0.95);
         }
         
         .linkedin-icon {

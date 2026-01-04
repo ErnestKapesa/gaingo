@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How It Works - Gaingo Battery Swapping</title>
+    <meta name="description" content="Learn how Gaingo's revolutionary battery swapping works. Swap and Go in under 2 minutes!">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <style>
+        :root {
+            --primary-green: #2D5F3F;
+            --light-green: #4A9B6B;
+            --primary-orange: #FF9F5A;
+            --light-orange: #FFB87D;
+            --dark-text: #1A1A1A;
+            --light-text: #666666;
+            --white: #FFFFFF;
+            --light-bg: #F8F9FA;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+        
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            z-index: 1000;
+        }
+        
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-green);
+        }
+        
+        .cta-button {
+            background: linear-gradient(135deg, var(--primary-green), var(--light-green));
+            color: var(--white) !important;
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 600;
+        }
+        
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        
+        .hamburger span {
+            width: 28px;
+            height: 3px;
+            background: var(--primary-green);
+            margin: 4px 0;
+            transition: all 0.3s ease;
+            border-radius: 3px;
+        }
+        
+        /* Page Hero */
+        .page-hero {
+            margin-top: 80px;
+            padding: 6rem 2rem 4rem;
+            background: linear-gradient(135deg, var(--primary-green), var(--light-green));
+            color: var(--white);
+            text-align: center;
+        }
+        
+        .page-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+        
+        .page-hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.95;
+        }
+        
+        /* Steps Section */
+        .steps-section {
+            padding: 6rem 2rem;
+            background: var(--white);
+        }
+        
+        .steps-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .step {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 6rem;
+        }
+        
+        .step:nth-child(even) {
+            direction: rtl;
+        }
+        
+        .step:nth-child(even) > * {
+            direction: ltr;
+        }
+        
+        .step-content {
+            padding: 2rem;
+        }
+        
+        .step-number {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-orange), var(--light-orange));
+            color: var(--white);
+            border-radius: 50%;
+            font-size: 2rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .step-content h2 {
+            font-size: 2rem;
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+        }
+        
+        .step-content p {
+            font-size: 1.1rem;
+            color: var(--light-text);
+            line-height: 1.8;
+        }
+        
+        .step-image {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+        }
+        
+        .step-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--primary-green);
+            color: var(--white);
+            padding: 4rem 2rem 2rem;
+        }
+        
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--light-orange);
+        }
+        
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.8rem;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: var(--light-orange);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        /* Mobile */
+        @media (max-width: 968px) {
+            .hamburger {
+                display: flex;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: rgba(255, 255, 255, 0.98);
+                flex-direction: column;
+                padding: 2rem;
+                transition: left 0.3s ease;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links a {
+                color: var(--dark-text) !important;
+                font-weight: 600;
+                padding: 1rem;
+            }
+            
+            .page-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .step {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .step:nth-child(even) {
+                direction: ltr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="images/GainGo-.png" alt="Gaingo Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="how-it-works.html">How It Works</a></li>
+                <li><a href="technology.html">Technology</a></li>
+                <li><a href="impact.html">Impact</a></li>
+                <li><a href="contact.html" class="cta-button">Get Started</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <h1>How Gaingo Battery Swapping Works</h1>
+        <p>Revolutionary battery swapping in under 2 minutes. Simple, fast, and efficient.</p>
+    </section>
+
+    <!-- Steps Section -->
+    <section class="steps-section">
+        <div class="steps-container">
+            <div class="step">
+                <div class="step-content">
+                    <div class="step-number">1</div>
+                    <h2>Find Nearest Station</h2>
+                    <p>Use our mobile app or website to locate the nearest Gaingo battery swapping station. Real-time availability shows you which stations have charged batteries ready for you.</p>
+                </div>
+                <div class="step-image">
+                    <img src="images/Charge-Nearby-Gaingo-Station.jpg" alt="Find Gaingo Station">
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-content">
+                    <div class="step-number">2</div>
+                    <h2>Remove Depleted Battery</h2>
+                    <p>Simply unlock your battery compartment and slide out the depleted battery. Our smart system automatically registers your swap and prepares a fully charged battery for you.</p>
+                </div>
+                <div class="step-image">
+                    <img src="images/Easy-Charge-Stations.jpg" alt="Remove Battery">
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-content">
+                    <div class="step-number">3</div>
+                    <h2>Insert Charged Battery</h2>
+                    <p>Grab a 100% charged battery from the station and insert it into your motorbike. It clicks securely into place, and you're ready to go!</p>
+                </div>
+                <div class="step-image">
+                    <img src="images/Gaingo-Bike-1.jpg" alt="Insert Charged Battery">
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-content">
+                    <div class="step-number">4</div>
+                    <h2>Ride Away - Under 2 Minutes!</h2>
+                    <p>That's it! The entire process takes less than 2 minutes. Continue your journey with a fully charged battery and maximum range. Pay only for what you use through our flexible pricing plans.</p>
+                </div>
+                <div class="step-image">
+                    <img src="images/Made-For-Business.jpg" alt="Ride Away">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Gaingo</h3>
+                <p>Zambia's first and leading electric motorbike battery swapping company.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="how-it-works.html">How It Works</a>
+                <a href="technology.html">Technology</a>
+                <a href="impact.html">Impact</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: <a href="mailto:customercare@gaingoev.com">customercare@gaingoev.com</a></p>
+                <p>Phone: <a href="tel:+260779168888">+260 77916 8888</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Gaingo - Zambia's leading battery swapping motorbike</p>
+        </div>
+    </footer>
+
+    <script>
+        // Hamburger Menu
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if (hamburger) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+        }
+    </script>
+</body>
+</html>

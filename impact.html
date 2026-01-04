@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Impact - Gaingo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/transitions.css">
+    <style>
+        :root {
+            --primary-green: #2D5F3F;
+            --light-green: #4A9B6B;
+            --primary-orange: #FF9F5A;
+            --white: #FFFFFF;
+            --light-bg: #F8F9FA;
+            --light-text: #666666;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; }
+        header { position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.98); backdrop-filter: blur(10px); box-shadow: 0 2px 20px rgba(0,0,0,0.05); z-index: 1000; }
+        nav { max-width: 1400px; margin: 0 auto; padding: 1.2rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo img { height: 50px; }
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+        .nav-links a { text-decoration: none; color: #1A1A1A; font-weight: 500; transition: color 0.3s; }
+        .cta-button { background: linear-gradient(135deg, var(--primary-green), var(--light-green)); color: white !important; padding: 0.8rem 1.8rem; border-radius: 50px; font-weight: 600; }
+        .impact { margin-top: 100px; padding: 6rem 2rem; background: var(--light-bg); }
+        .section-header { text-align: center; max-width: 800px; margin: 0 auto 4rem; }
+        .section-header h1 { font-size: 3.5rem; font-weight: 800; color: var(--primary-green); margin-bottom: 1rem; }
+        .impact-stats { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+        .stat { padding: 3rem 2rem; background: white; border-radius: 20px; border: 2px solid var(--primary-orange); box-shadow: 0 0 30px rgba(255, 159, 90, 0.2); transition: all 0.3s; text-align: center; }
+        .stat:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 0 50px rgba(255, 159, 90, 0.4); }
+        .stat-number { font-size: 4rem; font-weight: 800; margin-bottom: 0.5rem; background: linear-gradient(135deg, var(--primary-orange), #FFB87D); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .stat-label { font-size: 1.2rem; color: var(--light-text); font-weight: 500; }
+        footer { background: var(--primary-green); color: white; padding: 3rem 2rem 2rem; text-align: center; }
+        footer a { color: var(--primary-orange); text-decoration: none; }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo"><img src="images/GainGo-.png" alt="Gaingo Logo"></div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="page-link">Home</a></li>
+                <li><a href="how-it-works.html" class="page-link">How It Works</a></li>
+                <li><a href="technology.html" class="page-link">Technology</a></li>
+                <li><a href="impact.html" class="page-link">Impact</a></li>
+                <li><a href="contact.html" class="cta-button">Get Started</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="impact">
+        <div class="section-header">
+            <h1>Our Environmental Impact</h1>
+            <p>Making a real difference for Zambia's future</p>
+        </div>
+        <div class="impact-stats">
+            <div class="stat">
+                <div class="stat-number">5000+</div>
+                <div class="stat-label">Battery Swaps Daily</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">2.5M</div>
+                <div class="stat-label">Liters of Fuel Saved</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">4500</div>
+                <div class="stat-label">Tons CO₂ Reduced</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">70%</div>
+                <div class="stat-label">Cost Savings vs Petrol</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Gaingo. All rights reserved. | <a href="contact.html">Contact Us</a></p>
+    </footer>
+    <script src="js/page-transitions.js"></script>
+</body>
+</html>

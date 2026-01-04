@@ -118,7 +118,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.2;
+            opacity: 0.35;
         }
         
         .hero-overlay {
@@ -127,7 +127,104 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(45, 95, 63, 0.85), rgba(74, 155, 107, 0.85));
+            background: linear-gradient(135deg, rgba(45, 95, 63, 0.75), rgba(74, 155, 107, 0.75));
+        }
+        
+        /* TECH PARTICLE EFFECTS */
+        .tech-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--light-orange);
+            border-radius: 50%;
+            opacity: 0;
+            animation: particleFloat 8s infinite ease-in-out;
+            box-shadow: 0 0 10px var(--light-orange);
+        }
+        
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) translateX(var(--drift));
+                opacity: 0;
+            }
+        }
+        
+        /* AFRICA MAP WITH ZAMBIA SPOTLIGHT */
+        .africa-map {
+            position: absolute;
+            right: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 300px;
+            height: 400px;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+        
+        .map-outline {
+            stroke: var(--light-orange);
+            stroke-width: 2;
+            fill: none;
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: drawMap 3s ease-out forwards;
+        }
+        
+        @keyframes drawMap {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+        
+        .zambia-spotlight {
+            fill: var(--primary-orange);
+            opacity: 0;
+            animation: spotlightPulse 2s ease-in-out infinite 3s;
+        }
+        
+        @keyframes spotlightPulse {
+            0%, 100% {
+                opacity: 0.6;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.1);
+            }
+        }
+        
+        .location-ping {
+            fill: var(--white);
+            animation: ping 2s ease-out infinite 3s;
+        }
+        
+        @keyframes ping {
+            0% {
+                opacity: 1;
+                transform: scale(0.5);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(2);
+            }
         }
         
         .hero-content {
@@ -240,6 +337,22 @@
         /* FEATURES SECTION */
         .section {
             padding: 5rem 2rem;
+            position: relative;
+        }
+        
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(74, 155, 107, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(74, 155, 107, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            opacity: 0.5;
         }
         
         .section-header {
@@ -274,6 +387,24 @@
             border-radius: 20px;
             border: 2px solid var(--light-bg);
             transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(74, 155, 107, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.5s;
+        }
+        
+        .feature-card:hover::before {
+            left: 100%;
         }
         
         .feature-card:hover {
@@ -293,6 +424,31 @@
             font-size: 1.8rem;
             color: var(--white);
             margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+            animation: iconFloat 3s ease-in-out infinite;
+        }
+        
+        @keyframes iconFloat {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        .feature-card:hover .feature-icon {
+            animation: iconPulse 0.6s ease;
+        }
+        
+        @keyframes iconPulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
         }
         
         .feature-card h3 {
@@ -346,6 +502,120 @@
         .impact-label {
             color: var(--gray);
             font-weight: 500;
+        }
+        
+        /* TEAM SECTION */
+        .team-section {
+            padding: 5rem 2rem;
+            background: var(--white);
+        }
+        
+        .team-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .team-card {
+            background: var(--light-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-green);
+            box-shadow: 0 20px 50px rgba(45, 95, 63, 0.2);
+        }
+        
+        .team-image {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, var(--primary-green), var(--light-green));
+            overflow: hidden;
+        }
+        
+        .team-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        
+        .team-card:hover .team-image img {
+            transform: scale(1.1);
+        }
+        
+        .team-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(45, 95, 63, 0.9), transparent);
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding: 1.5rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .team-card:hover .team-overlay {
+            opacity: 1;
+        }
+        
+        .team-social {
+            display: flex;
+            gap: 0.8rem;
+        }
+        
+        .team-social a {
+            width: 35px;
+            height: 35px;
+            background: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-green);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .team-social a:hover {
+            background: var(--primary-orange);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+        
+        .team-info {
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .team-info h3 {
+            font-size: 1.3rem;
+            color: var(--primary-green);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        .team-role {
+            color: var(--primary-orange);
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+        
+        .team-bio {
+            color: var(--gray);
+            font-size: 0.9rem;
+            line-height: 1.6;
         }
         
         /* FOOTER */
@@ -516,6 +786,14 @@
             .section-header h2 {
                 font-size: 2rem;
             }
+            
+            .africa-map {
+                display: none;
+            }
+            
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -548,7 +826,45 @@
         </video>
         <div class="hero-overlay"></div>
         
-        <div class="hero-content">
+        <!-- TECH PARTICLES -->
+        <div class="tech-particles">
+            <div class="particle" style="left: 10%; --drift: 50px; animation-delay: 0s;"></div>
+            <div class="particle" style="left: 20%; --drift: -30px; animation-delay: 1s;"></div>
+            <div class="particle" style="left: 30%; --drift: 40px; animation-delay: 2s;"></div>
+            <div class="particle" style="left: 40%; --drift: -50px; animation-delay: 0.5s;"></div>
+            <div class="particle" style="left: 50%; --drift: 60px; animation-delay: 1.5s;"></div>
+            <div class="particle" style="left: 60%; --drift: -40px; animation-delay: 2.5s;"></div>
+            <div class="particle" style="left: 70%; --drift: 30px; animation-delay: 3s;"></div>
+            <div class="particle" style="left: 80%; --drift: -60px; animation-delay: 3.5s;"></div>
+            <div class="particle" style="left: 90%; --drift: 50px; animation-delay: 4s;"></div>
+            <div class="particle" style="left: 15%; --drift: -45px; animation-delay: 4.5s;"></div>
+            <div class="particle" style="left: 25%; --drift: 55px; animation-delay: 5s;"></div>
+            <div class="particle" style="left: 35%; --drift: -35px; animation-delay: 5.5s;"></div>
+            <div class="particle" style="left: 45%; --drift: 45px; animation-delay: 6s;"></div>
+            <div class="particle" style="left: 55%; --drift: -55px; animation-delay: 6.5s;"></div>
+            <div class="particle" style="left: 65%; --drift: 35px; animation-delay: 7s;"></div>
+            <div class="particle" style="left: 75%; --drift: -45px; animation-delay: 7.5s;"></div>
+        </div>
+        
+        <!-- AFRICA MAP WITH ZAMBIA SPOTLIGHT -->
+        <svg class="africa-map" viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
+            <!-- Simplified Africa outline -->
+            <path class="map-outline" d="M150,20 L180,30 L200,50 L210,80 L220,120 L230,160 L235,200 L230,240 L220,280 L200,320 L180,350 L150,370 L120,380 L90,370 L70,350 L50,320 L40,280 L35,240 L40,200 L50,160 L60,120 L70,80 L85,50 L110,30 Z"/>
+            
+            <!-- Zambia spotlight (approximate location in southern-central Africa) -->
+            <circle class="zambia-spotlight" cx="150" cy="260" r="15"/>
+            
+            <!-- Location ping effect -->
+            <circle class="location-ping" cx="150" cy="260" r="8"/>
+            <circle class="location-ping" cx="150" cy="260" r="8" style="animation-delay: 0.5s;"/>
+            <circle class="location-ping" cx="150" cy="260" r="8" style="animation-delay: 1s;"/>
+            
+            <!-- Location marker -->
+            <path d="M150,250 L150,265 M145,255 L155,255" stroke="white" stroke-width="2" opacity="0.8"/>
+            <text x="150" y="285" text-anchor="middle" fill="white" font-size="12" font-weight="bold" opacity="0.9">ZAMBIA</text>
+        </svg>
+        
+        <div class="hero-content"></div>
             <div class="hero-text">
                 <h1>Zambia's <span class="highlight">#1</span> Battery Swapping Solution</h1>
                 <p>Swap and Go in under 2 minutes. The fastest, most reliable, and affordable way to power electric mobility in Zambia.</p>
@@ -652,6 +968,67 @@
             <div class="impact-card">
                 <div class="impact-number">70%</div>
                 <div class="impact-label">Cost Savings vs Petrol</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM SECTION -->
+    <section class="team-section">
+        <div class="section-header">
+            <h2>Meet the Gaingo Team</h2>
+            <p>The innovators driving Zambia's electric mobility revolution</p>
+        </div>
+        
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="team-image">
+                    <img src="images/5Z5A1409 (1).jpg" alt="Leadership Team">
+                    <div class="team-overlay">
+                        <div class="team-social">
+                            <a href="https://www.linkedin.com/company/gaingoev/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://www.facebook.com/gaingo.ev" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-info">
+                    <h3>Leadership Team</h3>
+                    <p class="team-role">Founders & Executives</p>
+                    <p class="team-bio">Visionary leaders pioneering sustainable transportation solutions in Zambia.</p>
+                </div>
+            </div>
+            
+            <div class="team-card">
+                <div class="team-image">
+                    <img src="images/A_3_JPG.jpg" alt="Technology Team">
+                    <div class="team-overlay">
+                        <div class="team-social">
+                            <a href="https://www.linkedin.com/company/gaingoev/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://www.instagram.com/gaingoev" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-info">
+                    <h3>Technology Team</h3>
+                    <p class="team-role">Engineers & Developers</p>
+                    <p class="team-bio">Building cutting-edge battery swapping technology and smart systems.</p>
+                </div>
+            </div>
+            
+            <div class="team-card">
+                <div class="team-image">
+                    <img src="images/dde3e3_a7f50a3f747e4dc0b198b2def7b7a9cd~mv2.jpg" alt="Operations Team">
+                    <div class="team-overlay">
+                        <div class="team-social">
+                            <a href="https://www.linkedin.com/company/gaingoev/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://www.youtube.com/@gaingoev" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-info">
+                    <h3>Operations Team</h3>
+                    <p class="team-role">Field Operations & Support</p>
+                    <p class="team-bio">Ensuring seamless service delivery and customer satisfaction across Zambia.</p>
+                </div>
             </div>
         </div>
     </section>

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Team - Gaingo Battery Swapping</title>
-    <meta name="description" content="Meet the team behind Gaingo - Zambia's leading electric motorbike battery swapping company.">
+    <title>Blog - Gaingo EV Insights & News</title>
+    <meta name="description" content="Learn about electric vehicles, battery swapping technology, and the future of sustainable transportation in Zambia.">
     
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -121,20 +121,23 @@
             opacity: 0.95;
         }
         
-        /* TEAM SECTION */
+        /* BLOG SECTION */
         .section {
             padding: 5rem 2rem;
         }
         
-        .team-grid {
+        .blog-container {
             max-width: 1200px;
             margin: 0 auto;
+        }
+        
+        .blog-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 3rem;
         }
         
-        .team-member {
+        .blog-card {
             background: var(--white);
             border-radius: 20px;
             overflow: hidden;
@@ -142,78 +145,158 @@
             transition: all 0.3s;
         }
         
-        .team-member:hover {
+        .blog-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 50px rgba(45, 95, 63, 0.15);
         }
         
-        .team-photo {
+        .blog-image {
             width: 100%;
-            height: 300px;
+            height: 250px;
             background: linear-gradient(135deg, var(--primary-green), var(--light-green));
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 4rem;
+            color: var(--white);
+            position: relative;
             overflow: hidden;
         }
         
-        .team-photo img {
+        .blog-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
         
-        .team-photo i {
-            font-size: 5rem;
+        .blog-category {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: var(--primary-orange);
             color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
         }
         
-        .team-info {
+        .blog-content {
             padding: 2rem;
         }
         
-        .team-info h3 {
+        .blog-date {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .blog-content h3 {
             font-size: 1.5rem;
             color: var(--primary-green);
-            margin-bottom: 0.5rem;
-            font-weight: 700;
-        }
-        
-        .team-role {
-            color: var(--primary-orange);
-            font-weight: 600;
-            font-size: 1rem;
             margin-bottom: 1rem;
+            font-weight: 700;
+            line-height: 1.3;
         }
         
-        .team-bio {
+        .blog-excerpt {
             color: var(--gray);
             line-height: 1.7;
             margin-bottom: 1.5rem;
         }
         
-        .team-social {
-            display: flex;
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-orange);
+            font-weight: 600;
+            text-decoration: none;
+            transition: gap 0.3s;
+        }
+        
+        .read-more:hover {
             gap: 1rem;
         }
         
-        .social-link {
-            width: 40px;
-            height: 40px;
+        /* FEATURED POST */
+        .featured-post {
             background: var(--light-bg);
-            border-radius: 50%;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 4rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+        
+        .featured-image {
+            height: 100%;
+            min-height: 400px;
+            background: linear-gradient(135deg, var(--primary-green), var(--light-green));
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--primary-green);
-            text-decoration: none;
-            transition: all 0.3s;
+            font-size: 5rem;
+            color: var(--white);
         }
         
-        .social-link:hover {
+        .featured-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .featured-content {
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .featured-badge {
+            display: inline-block;
+            background: var(--primary-orange);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            width: fit-content;
+        }
+        
+        .featured-content h2 {
+            font-size: 2rem;
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+        
+        .featured-content p {
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
             background: linear-gradient(135deg, var(--primary-green), var(--light-green));
             color: var(--white);
-            transform: scale(1.1);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            width: fit-content;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(45, 95, 63, 0.3);
         }
         
         /* FOOTER */
@@ -361,8 +444,20 @@
                 font-size: 2rem;
             }
             
-            .team-grid {
+            .blog-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .featured-post {
+                grid-template-columns: 1fr;
+            }
+            
+            .featured-image {
+                min-height: 300px;
+            }
+            
+            .featured-content {
+                padding: 2rem;
             }
         }
     </style>
@@ -393,84 +488,133 @@
 
     <!-- PAGE HERO -->
     <section class="page-hero">
-        <h1>Meet Our Team</h1>
-        <p>The passionate innovators driving Zambia's electric mobility revolution</p>
+        <h1>Gaingo Blog & Insights</h1>
+        <p>Stay informed about electric vehicles, battery swapping, and sustainable transportation in Zambia</p>
     </section>
 
-    <!-- TEAM SECTION -->
+    <!-- BLOG SECTION -->
     <section class="section">
-        <div class="team-grid">
-            <div class="team-member">
-                <div class="team-photo">
-                    <img src="images/Kevin.jpg" alt="Kevin Lu">
+        <div class="blog-container">
+            <!-- Featured Post -->
+            <div class="featured-post">
+                <div class="featured-image">
+                    <i class="fas fa-bolt"></i>
                 </div>
-                <div class="team-info">
-                    <h3>Kevin Lu</h3>
-                    <div class="team-role">Chief Executive Officer</div>
-                    <p class="team-bio">Visionary leader with over 10 years of experience in sustainable energy and transportation. Kevin founded Gaingo with a mission to revolutionize electric mobility across Zambia and Africa.</p>
-                    <div class="team-social">
-                        <a href="https://www.linkedin.com/company/gaingoev/" class="social-link" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="mailto:kevin@gaingoev.com" class="social-link"><i class="fas fa-envelope"></i></a>
-                    </div>
+                <div class="featured-content">
+                    <span class="featured-badge">Featured Article</span>
+                    <h2>Why Electric Motorbikes Are the Future of Zambian Transportation</h2>
+                    <p>Electric motorbikes are revolutionizing urban mobility in Zambia. With zero emissions, lower operating costs, and instant battery swapping, they're the smart choice for delivery riders, taxi operators, and everyday commuters. Discover why thousands are making the switch.</p>
+                    <a href="#ev-future" class="btn">Read Full Article</a>
                 </div>
             </div>
 
-            <div class="team-member">
-                <div class="team-photo">
-                    <img src="images/Ernest.jpg" alt="Ernest Kapesa">
-                </div>
-                <div class="team-info">
-                    <h3>Ernest Kapesa</h3>
-                    <div class="team-role">Chief Marketing Officer</div>
-                    <p class="team-bio">Marketing strategist with extensive experience in brand development and digital marketing. Ernest drives Gaingo's marketing initiatives and brand positioning across Zambia and beyond.</p>
-                    <div class="team-social">
-                        <a href="https://www.linkedin.com/company/gaingoev/" class="social-link" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="mailto:ernest@gaingoev.com" class="social-link"><i class="fas fa-envelope"></i></a>
+            <!-- Blog Grid -->
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <span class="blog-category">EV Benefits</span>
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-date">
+                            <i class="far fa-calendar"></i>
+                            <span>January 10, 2025</span>
+                        </div>
+                        <h3>Electric vs Petrol: The Real Cost Comparison</h3>
+                        <p class="blog-excerpt">Save up to 70% on fuel costs with electric motorbikes. We break down the numbers showing why EVs are more affordable than traditional petrol bikes in Zambia.</p>
+                        <a href="#cost-comparison" class="read-more">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
-            </div>
 
-            <div class="team-member">
-                <div class="team-photo">
-                    <img src="images/Elizabeth.jpg" alt="Elizabeth Mwandu Mutale">
-                </div>
-                <div class="team-info">
-                    <h3>Elizabeth Mwandu Mutale</h3>
-                    <div class="team-role">Digital Marketer Lead</div>
-                    <p class="team-bio">Digital marketing expert specializing in social media strategy and online engagement. Elizabeth leads our digital presence and creates compelling content that connects with our audience.</p>
-                    <div class="team-social">
-                        <a href="https://www.linkedin.com/company/gaingoev/" class="social-link" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="mailto:elizabeth@gaingoev.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <span class="blog-category">Technology</span>
+                        <i class="fas fa-battery-full"></i>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-date">
+                            <i class="far fa-calendar"></i>
+                            <span>January 8, 2025</span>
+                        </div>
+                        <h3>How Battery Swapping Works: Under 2 Minutes</h3>
+                        <p class="blog-excerpt">Forget waiting hours to charge. Battery swapping takes less than 2 minutes. Learn how Gaingo's revolutionary technology keeps you moving without downtime.</p>
+                        <a href="#battery-swapping" class="read-more">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
-            </div>
 
-            <div class="team-member">
-                <div class="team-photo">
-                    <img src="images/Revious.jpg" alt="Revious Kachongo">
-                </div>
-                <div class="team-info">
-                    <h3>Revious Kachongo</h3>
-                    <div class="team-role">Operations Manager</div>
-                    <p class="team-bio">Operations expert with extensive experience in logistics and customer service. Revious ensures our battery swapping stations deliver exceptional service across Zambia.</p>
-                    <div class="team-social">
-                        <a href="https://www.linkedin.com/company/gaingoev/" class="social-link" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="mailto:revious@gaingoev.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <span class="blog-category">Environment</span>
+                        <i class="fas fa-globe-africa"></i>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-date">
+                            <i class="far fa-calendar"></i>
+                            <span>January 5, 2025</span>
+                        </div>
+                        <h3>Zero Emissions: How EVs Are Cleaning Zambia's Air</h3>
+                        <p class="blog-excerpt">Every electric motorbike removes harmful emissions from our cities. Discover the environmental impact of switching from petrol to electric in Zambia.</p>
+                        <a href="#zero-emissions" class="read-more">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
-            </div>
 
-            <div class="team-member">
-                <div class="team-photo">
-                    <img src="images/Innocent.png" alt="Innocent Zulu">
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <span class="blog-category">Business</span>
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-date">
+                            <i class="far fa-calendar"></i>
+                            <span>January 3, 2025</span>
+                        </div>
+                        <h3>Boost Your Delivery Business with Electric Bikes</h3>
+                        <p class="blog-excerpt">Delivery riders are earning more with electric motorbikes. Lower costs, more trips, higher profits. See how EVs transform delivery businesses in Zambia.</p>
+                        <a href="#delivery-business" class="read-more">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
                 </div>
-                <div class="team-info">
-                    <h3>Innocent Zulu</h3>
-                    <div class="team-role">Technical Specialist</div>
-                    <p class="team-bio">Technical expert specializing in battery systems and electric vehicle technology. Innocent provides technical support and ensures optimal performance of our swapping infrastructure.</p>
-                    <div class="team-social">
-                        <a href="https://www.linkedin.com/company/gaingoev/" class="social-link" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="mailto:innocent@gaingoev.com" class="social-link"><i class="fas fa-envelope"></i></a>
+
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <span class="blog-category">Maintenance</span>
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-date">
+                            <i class="far fa-calendar"></i>
+                            <span>December 28, 2024</span>
+                        </div>
+                        <h3>Why Electric Bikes Need Less Maintenance</h3>
+                        <p class="blog-excerpt">No oil changes, no spark plugs, fewer moving parts. Electric motorbikes require minimal maintenance compared to petrol bikes, saving you time and money.</p>
+                        <a href="#maintenance" class="read-more">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <span class="blog-category">Innovation</span>
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-date">
+                            <i class="far fa-calendar"></i>
+                            <span>December 25, 2024</span>
+                        </div>
+                        <h3>The Future of Mobility in Africa Starts Here</h3>
+                        <p class="blog-excerpt">Zambia is leading Africa's electric mobility revolution. Learn how battery swapping technology is transforming transportation across the continent.</p>
+                        <a href="#africa-mobility" class="read-more">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
             </div>

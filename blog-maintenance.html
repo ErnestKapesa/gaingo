@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Maintenance Works: Under 2 Minutes - Gaingo Blog</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <style>
+        :root {
+            --primary-green: #2D5F3F;
+            --light-green: #4A9B6B;
+            --primary-orange: #FF9F5A;
+            --light-orange: #FFB87D;
+            --dark: #1A1A1A;
+            --gray: #666666;
+            --light-bg: #F8F9FA;
+            --white: #FFFFFF;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; color: var(--dark); line-height: 1.6; }
+        header { position: fixed; top: 0; width: 100%; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); box-shadow: 0 2px 15px rgba(0,0,0,0.08); z-index: 1000; }
+        nav { max-width: 1400px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo img { height: 45px; }
+        .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--dark); font-weight: 500; font-size: 0.95rem; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--primary-green); }
+        .nav-cta { background: linear-gradient(135deg, var(--primary-green), var(--light-green)); color: var(--white) !important; padding: 0.7rem 1.5rem; border-radius: 50px; }
+        .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 4px; }
+        .hamburger span { width: 25px; height: 3px; background: var(--primary-green); border-radius: 3px; transition: all 0.3s; }
+        .article-header { margin-top: 70px; padding: 4rem 2rem 2rem; background: linear-gradient(135deg, var(--primary-green), var(--light-green)); color: var(--white); }
+        .article-header-content { max-width: 900px; margin: 0 auto; }
+        .breadcrumb { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem; font-size: 0.9rem; opacity: 0.9; }
+        .breadcrumb a { color: var(--white); text-decoration: none; }
+        .article-category { display: inline-block; background: var(--primary-orange); padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 1.5rem; }
+        .article-header h1 { font-size: 3rem; font-weight: 900; margin-bottom: 1.5rem; line-height: 1.2; }
+        .article-meta { display: flex; align-items: center; gap: 2rem; font-size: 0.95rem; opacity: 0.9; }
+        .article-meta-item { display: flex; align-items: center; gap: 0.5rem; }
+        .article-content { max-width: 900px; margin: 0 auto; padding: 4rem 2rem; }
+        .article-content h2 { font-size: 2rem; color: var(--primary-green); margin: 3rem 0 1.5rem; font-weight: 800; }
+        .article-content h3 { font-size: 1.5rem; color: var(--primary-green); margin: 2rem 0 1rem; font-weight: 700; }
+        .article-content p { font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem; color: var(--dark); }
+        .article-content ul, .article-content ol { margin: 1.5rem 0; padding-left: 2rem; }
+        .article-content li { font-size: 1.1rem; line-height: 1.8; margin-bottom: 0.8rem; color: var(--dark); }
+        .highlight-box { background: var(--light-bg); border-left: 4px solid var(--primary-orange); padding: 2rem; margin: 2rem 0; border-radius: 10px; }
+        .highlight-box h3 { margin-top: 0; }
+        .step-box { background: var(--white); border: 2px solid var(--light-bg); padding: 2rem; margin: 1.5rem 0; border-radius: 15px; transition: all 0.3s; }
+        .step-box:hover { border-color: var(--primary-green); box-shadow: 0 10px 30px rgba(45, 95, 63, 0.1); }
+        .step-number { display: inline-flex; align-items: center; justify-content: center; width: 50px; height: 50px; background: linear-gradient(135deg, var(--primary-orange), var(--light-orange)); color: var(--white); border-radius: 50%; font-size: 1.5rem; font-weight: 800; margin-bottom: 1rem; }
+        .cta-section { background: linear-gradient(135deg, var(--primary-green), var(--light-green)); color: var(--white); padding: 3rem; border-radius: 20px; text-align: center; margin: 3rem 0; }
+        .cta-section h3 { color: var(--white); margin: 0 0 1rem; }
+        .cta-section p { color: var(--white); opacity: 0.95; margin-bottom: 2rem; }
+        .btn { display: inline-block; padding: 1rem 2rem; background: var(--primary-orange); color: var(--white); text-decoration: none; border-radius: 50px; font-weight: 600; transition: all 0.3s; }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(255, 159, 90, 0.4); }
+        .back-to-blog { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--primary-green); text-decoration: none; font-weight: 600; margin-bottom: 2rem; transition: gap 0.3s; }
+        .back-to-blog:hover { gap: 1rem; }
+        footer { background: var(--primary-green); color: var(--white); padding: 3rem 2rem 1.5rem; }
+        .footer-content { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; margin-bottom: 2rem; }
+        .footer-section h3 { color: var(--light-orange); margin-bottom: 1rem; }
+        .footer-section a { color: rgba(255, 255, 255, 0.9); text-decoration: none; display: block; margin-bottom: 0.5rem; transition: color 0.3s; }
+        .footer-section a:hover { color: var(--light-orange); }
+        .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.2); color: rgba(255, 255, 255, 0.8); }
+        @media (max-width: 968px) {
+            .hamburger { display: flex; }
+            .nav-links { position: fixed; top: 70px; left: -100%; width: 100%; height: calc(100vh - 70px); background: rgba(255, 255, 255, 0.98); flex-direction: column; padding: 2rem; gap: 0; transition: left 0.3s; }
+            .nav-links.active { left: 0; }
+            .nav-links li { width: 100%; text-align: center; border-bottom: 1px solid var(--light-bg); }
+            .nav-links a { display: block; padding: 1.2rem; color: var(--dark) !important; font-weight: 600; }
+            .article-header h1 { font-size: 2rem; }
+            .article-content { padding: 2rem 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo"><img src="images/GainGo-.png" alt="Gaingo Logo"></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="how-it-works.html">How It Works</a></li>
+                <li><a href="technology.html">Maintenance</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="impact.html">Impact</a></li>
+                <li><a href="contact.html" class="nav-cta">Get Started</a></li>
+            </ul>
+            <div class="hamburger"><span></span><span></span><span></span></div>
+        </nav>
+    </header>
+
+    <section class="article-header">
+        <div class="article-header-content">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a><i class="fas fa-chevron-right"></i>
+                <a href="blog.html">Blog</a><i class="fas fa-chevron-right"></i>
+                <span>Maintenance</span>
+            </div>
+            <span class="article-category">Maintenance</span>
+            <h1>How Maintenance Works: Under 2 Minutes</h1>
+            <div class="article-meta">
+                <div class="article-meta-item"><i class="far fa-calendar"></i><span>December 28, 2025</span></div>
+                <div class="article-meta-item"><i class="far fa-clock"></i><span>4 min read</span></div>
+            </div>
+        </div>
+    </section>
+
+    <article class="article-content">
+        <a href="blog.html" class="back-to-blog"><i class="fas fa-arrow-left"></i> Back to Blog</a>
+
+        <p>Forget waiting hours to charge your electric motorbike. With Gaingo's revolutionary battery swapping technology, you can exchange a depleted battery for a fully charged one in under 2 minutes—faster than filling up with petrol.</p>
+
+        <h2>The 4-Step Swapping Process</h2>
+
+        <div class="step-box">
+            <div class="step-number">1</div>
+            <h3>Locate a Swapping Station</h3>
+            <p>Use the Gaingo mobile app to find the nearest battery swapping station. Our app shows real-time availability, so you always know where charged batteries are waiting for you.</p>
+        </div>
+
+        <div class="step-box">
+            <div class="step-number">2</div>
+            <h3>Remove Your Depleted Battery</h3>
+            <p>Simply unlock your battery compartment and slide out the depleted battery. Our smart system automatically registers your swap and prepares a fully charged battery.</p>
+        </div>
+
+        <div class="step-box">
+            <div class="step-number">3</div>
+            <h3>Insert a Fully Charged Battery</h3>
+            <p>Grab a 100% charged battery from the station and insert it into your motorbike. It clicks securely into place with our smart locking mechanism.</p>
+        </div>
+
+        <div class="step-box">
+            <div class="step-number">4</div>
+            <h3>Ride Away - Total Time: Under 2 Minutes!</h3>
+            <p>That's it! You're back on the road with a full charge and maximum range. Payment is automatic through your Gaingo account.</p>
+        </div>
+
+        <div class="highlight-box">
+            <h3><i class="fas fa-bolt"></i> Why Maintenance Beats Charging</h3>
+            <p><strong>Traditional Charging:</strong> 4-8 hours for a full charge<br>
+            <strong>Gaingo Maintenance:</strong> Under 2 minutes for 100% charge</p>
+            <p>That's over 120 times faster! No downtime means more trips, more earnings, and more freedom.</p>
+        </div>
+
+        <h2>The Maintenance Behind the Swap</h2>
+
+        <h3>Smart Battery Management</h3>
+        <p>Every Gaingo battery is equipped with IoT sensors that monitor:</p>
+        <ul>
+            <li>Battery health and performance</li>
+            <li>Charge level and capacity</li>
+            <li>Temperature and safety status</li>
+            <li>Usage patterns and optimization</li>
+        </ul>
+
+        <h3>Automated Station Operations</h3>
+        <p>Our swapping stations use intelligent systems to:</p>
+        <ul>
+            <li>Charge batteries optimally for longevity</li>
+            <li>Rotate battery inventory efficiently</li>
+            <li>Maintain ideal storage conditions</li>
+            <li>Ensure only fully charged, healthy batteries are available</li>
+        </ul>
+
+        <h3>Secure & Seamless Transactions</h3>
+        <p>The entire swap process is tracked digitally. When you remove a battery, our system knows. When you insert a new one, payment is processed automatically. No cash, no cards, no hassle.</p>
+
+        <h2>Benefits for Zambian Riders</h2>
+
+        <h3>For Delivery Riders</h3>
+        <p>Make more deliveries per day without waiting for charging. Swap batteries during peak hours and maximize your earnings.</p>
+
+        <h3>For Taxi Operators</h3>
+        <p>Keep your motorbike on the road all day. Quick swaps mean more trips and higher daily revenue.</p>
+
+        <h3>For Daily Commuters</h3>
+        <p>Never worry about running out of charge. Swap stations are conveniently located throughout Zambia's cities.</p>
+
+        <h2>Growing Network</h2>
+
+        <p>Gaingo is rapidly expanding our network of swapping stations across Zambia. We're strategically placing stations in high-traffic areas, business districts, and residential neighborhoods to ensure you're never far from a swap.</p>
+
+        <div class="cta-section">
+            <h3>Experience the Speed of Maintenance</h3>
+            <p>Join the electric mobility revolution. Swap and go in under 2 minutes.</p>
+            <a href="contact.html" class="btn">Get Started with Gaingo</a>
+        </div>
+
+        <a href="blog.html" class="back-to-blog"><i class="fas fa-arrow-left"></i> Back to Blog</a>
+    </article>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Gaingo</h3>
+                <p>Zambia's first and leading electric motorbike battery swapping company.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="how-it-works.html">How It Works</a>
+                <a href="technology.html">Maintenance</a>
+                <a href="team.html">Team</a>
+                <a href="blog.html">Blog</a>
+                <a href="impact.html">Impact</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: <a href="mailto:customercare@gaingoev.com">customercare@gaingoev.com</a></p>
+                <p>Phone: <a href="tel:+260779168888">+260 77916 8888</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Gaingo - Zambia's leading battery swapping motorbike</p>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        if (hamburger) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('active');
+                });
+            });
+        }
+    </script>
+</body>
+</html>

@@ -4,6 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>How Battery Swapping Works: Under 2 Minutes - Gaingo Blog</title>
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://gaingoev.com/blog-battery-swapping.html">
+    <meta property="og:title" content="How Battery Swapping Works: Under 2 Minutes">
+    <meta property="og:description" content="Read this insightful article about electric mobility in Zambia from Gaingo.">
+    <meta property="og:image" content="https://gaingoev.com/images/Gainggo-Battery-Swapping.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://gaingoev.com/blog-battery-swapping.html">
+    <meta property="twitter:title" content="How Battery Swapping Works: Under 2 Minutes">
+    <meta property="twitter:description" content="Read this insightful article about electric mobility in Zambia from Gaingo.">
+    <meta property="twitter:image" content="https://gaingoev.com/images/Gainggo-Battery-Swapping.jpg">
+    
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
@@ -29,6 +44,41 @@
         .nav-cta { background: linear-gradient(135deg, var(--primary-green), var(--light-green)); color: var(--white) !important; padding: 0.7rem 1.5rem; border-radius: 50px; }
         .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 4px; }
         .hamburger span { width: 25px; height: 3px; background: var(--primary-green); border-radius: 3px; transition: all 0.3s; }
+        /* SOCIAL SHARE BUTTONS */
+        .social-share {
+            position: fixed;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            z-index: 999;
+        }
+        .share-button {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.2rem;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .share-button:hover {
+            transform: translateX(10px) scale(1.1);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        .share-facebook { background: #1877F2; }
+        .share-twitter { background: #1DA1F2; }
+        .share-linkedin { background: #0A66C2; }
+        .share-whatsapp { background: #25D366; }
+        .share-email { background: #EA4335; }
+        
         .article-header { margin-top: 70px; padding: 4rem 2rem 2rem; background: linear-gradient(135deg, var(--primary-green), var(--light-green)); color: var(--white); }
         .article-header-content { max-width: 900px; margin: 0 auto; }
         .breadcrumb { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem; font-size: 0.9rem; opacity: 0.9; }
@@ -62,6 +112,25 @@
         .footer-section a:hover { color: var(--light-orange); }
         .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.2); color: rgba(255, 255, 255, 0.8); }
         @media (max-width: 968px) {
+            .social-share {
+                left: 50%;
+                top: auto;
+                bottom: 20px;
+                transform: translateX(-50%);
+                flex-direction: row;
+                background: rgba(255, 255, 255, 0.98);
+                padding: 0.8rem 1rem;
+                border-radius: 50px;
+                box-shadow: 0 -5px 20px rgba(0,0,0,0.15);
+            }
+            .share-button {
+                width: 45px;
+                height: 45px;
+                font-size: 1rem;
+            }
+            .share-button:hover {
+                transform: translateY(-5px) scale(1.1);
+            }
             .hamburger { display: flex; }
             .nav-links { position: fixed; top: 70px; left: -100%; width: 100%; height: calc(100vh - 70px); background: rgba(255, 255, 255, 0.98); flex-direction: column; padding: 2rem; gap: 0; transition: left 0.3s; }
             .nav-links.active { left: 0; }
@@ -88,6 +157,25 @@
             <div class="hamburger"><span></span><span></span><span></span></div>
         </nav>
     </header>
+    <!-- SOCIAL SHARE BUTTONS -->
+    <div class="social-share">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://gaingoev.com/blog-battery-swapping.html" target="_blank" rel="noopener noreferrer" class="share-button share-facebook" aria-label="Share on Facebook">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://twitter.com/intent/tweet?url=https://gaingoev.com/blog-battery-swapping.html&text=How%20Battery%20Swapping%20Works%3A%20Under%202%20Minutes" target="_blank" rel="noopener noreferrer" class="share-button share-twitter" aria-label="Share on Twitter">
+            <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://gaingoev.com/blog-battery-swapping.html" target="_blank" rel="noopener noreferrer" class="share-button share-linkedin" aria-label="Share on LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://wa.me/?text=How%20Battery%20Swapping%20Works%3A%20Under%202%20Minutes%20https://gaingoev.com/blog-battery-swapping.html" target="_blank" rel="noopener noreferrer" class="share-button share-whatsapp" aria-label="Share on WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="mailto:?subject=How%20Battery%20Swapping%20Works%3A%20Under%202%20Minutes&body=Check%20out%20this%20article:%20https://gaingoev.com/blog-battery-swapping.html" class="share-button share-email" aria-label="Share via Email">
+            <i class="fas fa-envelope"></i>
+        </a>
+    </div>
+
 
     <section class="article-header">
         <div class="article-header-content">

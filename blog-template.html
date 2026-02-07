@@ -3,23 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Electric vs Petrol: The Real Cost Comparison - Gaingo Blog</title>
-    <meta name="description" content="Save up to 70% on fuel costs with electric motorbikes. We break down the numbers showing why EVs are more affordable than traditional petrol bikes in Zambia.">
-    
+    <title>[BLOG_TITLE] - Gaingo Blog</title>
+    <meta name="description" content="[BLOG_DESCRIPTION]">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://gaingoev.com/blog-cost-comparison.html">
-    <meta property="og:title" content="Electric vs Petrol: The Real Cost Comparison">
-    <meta property="og:description" content="Read this insightful article about electric mobility in Zambia from Gaingo.">
-    <meta property="og:image" content="https://gaingoev.com/images/Gaingo-Battery-Charging.jpg">
+    <meta property="og:url" content="https://gaingoev.com/[BLOG_FILENAME]">
+    <meta property="og:title" content="[BLOG_TITLE]">
+    <meta property="og:description" content="[BLOG_DESCRIPTION]">
+    <meta property="og:image" content="https://gaingoev.com/images/[BLOG_IMAGE]">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://gaingoev.com/blog-cost-comparison.html">
-    <meta property="twitter:title" content="Electric vs Petrol: The Real Cost Comparison">
-    <meta property="twitter:description" content="Read this insightful article about electric mobility in Zambia from Gaingo.">
-    <meta property="twitter:image" content="https://gaingoev.com/images/Gaingo-Battery-Charging.jpg">
+    <meta property="twitter:url" content="https://gaingoev.com/[BLOG_FILENAME]">
+    <meta property="twitter:title" content="[BLOG_TITLE]">
+    <meta property="twitter:description" content="[BLOG_DESCRIPTION]">
+    <meta property="twitter:image" content="https://gaingoev.com/images/[BLOG_IMAGE]">
     
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -113,6 +112,7 @@
             border-radius: 3px;
             transition: all 0.3s;
         }
+        
         /* SOCIAL SHARE BUTTONS */
         .social-share {
             position: fixed;
@@ -124,6 +124,7 @@
             gap: 0.8rem;
             z-index: 999;
         }
+        
         .share-button {
             width: 50px;
             height: 50px;
@@ -138,16 +139,17 @@
             transition: all 0.3s ease;
             cursor: pointer;
         }
+        
         .share-button:hover {
             transform: translateX(10px) scale(1.1);
             box-shadow: 0 6px 20px rgba(0,0,0,0.3);
         }
+        
         .share-facebook { background: #1877F2; }
         .share-twitter { background: #1DA1F2; }
         .share-linkedin { background: #0A66C2; }
         .share-whatsapp { background: #25D366; }
         .share-email { background: #EA4335; }
-        
         
         /* ARTICLE HEADER */
         .article-header {
@@ -174,10 +176,6 @@
         .breadcrumb a {
             color: var(--white);
             text-decoration: none;
-        }
-        
-        .breadcrumb a:hover {
-            text-decoration: underline;
         }
         
         .article-category {
@@ -239,7 +237,7 @@
             color: var(--dark);
         }
         
-        .article-content ul, .article-content ol {
+        .article-content ul {
             margin: 1.5rem 0;
             padding-left: 2rem;
         }
@@ -261,36 +259,6 @@
         
         .highlight-box h3 {
             margin-top: 0;
-        }
-        
-        .comparison-table {
-            width: 100%;
-            margin: 2rem 0;
-            border-collapse: collapse;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            border-radius: 10px;
-            overflow: hidden;
-        }
-        
-        .comparison-table th {
-            background: linear-gradient(135deg, var(--primary-green), var(--light-green));
-            color: var(--white);
-            padding: 1.5rem;
-            text-align: left;
-            font-weight: 700;
-        }
-        
-        .comparison-table td {
-            padding: 1.5rem;
-            border-bottom: 1px solid var(--light-bg);
-        }
-        
-        .comparison-table tr:last-child td {
-            border-bottom: none;
-        }
-        
-        .comparison-table tr:nth-child(even) {
-            background: var(--light-bg);
         }
         
         .cta-section {
@@ -337,6 +305,7 @@
             text-decoration: none;
             font-weight: 600;
             margin-bottom: 2rem;
+            transition: gap 0.3s;
         }
         
         .back-to-blog:hover {
@@ -383,7 +352,7 @@
             color: rgba(255, 255, 255, 0.8);
         }
         
-        /* MOBILE */
+        /* MOBILE RESPONSIVE */
         @media (max-width: 968px) {
             .social-share {
                 left: 50%;
@@ -396,14 +365,17 @@
                 border-radius: 50px;
                 box-shadow: 0 -5px 20px rgba(0,0,0,0.15);
             }
+            
             .share-button {
                 width: 45px;
                 height: 45px;
                 font-size: 1rem;
             }
+            
             .share-button:hover {
                 transform: translateY(-5px) scale(1.1);
             }
+            
             .hamburger {
                 display: flex;
             }
@@ -445,15 +417,6 @@
             .article-content {
                 padding: 2rem 1.5rem;
             }
-            
-            .comparison-table {
-                font-size: 0.9rem;
-            }
-            
-            .comparison-table th,
-            .comparison-table td {
-                padding: 1rem;
-            }
         }
     </style>
 </head>
@@ -480,25 +443,25 @@
             </div>
         </nav>
     </header>
+
     <!-- SOCIAL SHARE BUTTONS -->
     <div class="social-share">
-        <a href="https://www.facebook.com/sharer/sharer.php?u=https://gaingoev.com/blog-cost-comparison.html" target="_blank" rel="noopener noreferrer" class="share-button share-facebook" aria-label="Share on Facebook">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://gaingoev.com/[BLOG_FILENAME]" target="_blank" rel="noopener noreferrer" class="share-button share-facebook" aria-label="Share on Facebook">
             <i class="fab fa-facebook-f"></i>
         </a>
-        <a href="https://twitter.com/intent/tweet?url=https://gaingoev.com/blog-cost-comparison.html&text=Electric%20vs%20Petrol%3A%20The%20Real%20Cost%20Comparison" target="_blank" rel="noopener noreferrer" class="share-button share-twitter" aria-label="Share on Twitter">
+        <a href="https://twitter.com/intent/tweet?url=https://gaingoev.com/[BLOG_FILENAME]&text=[BLOG_TITLE_ENCODED]" target="_blank" rel="noopener noreferrer" class="share-button share-twitter" aria-label="Share on Twitter">
             <i class="fab fa-twitter"></i>
         </a>
-        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://gaingoev.com/blog-cost-comparison.html" target="_blank" rel="noopener noreferrer" class="share-button share-linkedin" aria-label="Share on LinkedIn">
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://gaingoev.com/[BLOG_FILENAME]" target="_blank" rel="noopener noreferrer" class="share-button share-linkedin" aria-label="Share on LinkedIn">
             <i class="fab fa-linkedin-in"></i>
         </a>
-        <a href="https://wa.me/?text=Electric%20vs%20Petrol%3A%20The%20Real%20Cost%20Comparison%20https://gaingoev.com/blog-cost-comparison.html" target="_blank" rel="noopener noreferrer" class="share-button share-whatsapp" aria-label="Share on WhatsApp">
+        <a href="https://wa.me/?text=[BLOG_TITLE_ENCODED]%20https://gaingoev.com/[BLOG_FILENAME]" target="_blank" rel="noopener noreferrer" class="share-button share-whatsapp" aria-label="Share on WhatsApp">
             <i class="fab fa-whatsapp"></i>
         </a>
-        <a href="mailto:?subject=Electric%20vs%20Petrol%3A%20The%20Real%20Cost%20Comparison&body=Check%20out%20this%20article:%20https://gaingoev.com/blog-cost-comparison.html" class="share-button share-email" aria-label="Share via Email">
+        <a href="mailto:?subject=[BLOG_TITLE_ENCODED]&body=Check%20out%20this%20article:%20https://gaingoev.com/[BLOG_FILENAME]" class="share-button share-email" aria-label="Share via Email">
             <i class="fas fa-envelope"></i>
         </a>
     </div>
-
 
     <!-- ARTICLE HEADER -->
     <section class="article-header">
@@ -508,20 +471,18 @@
                 <i class="fas fa-chevron-right"></i>
                 <a href="blog.html">Blog</a>
                 <i class="fas fa-chevron-right"></i>
-                <span>Electric vs Petrol</span>
+                <span>[BLOG_CATEGORY]</span>
             </div>
-            
-            <span class="article-category">EV Benefits</span>
-            <h1>Electric vs Petrol: The Real Cost Comparison</h1>
-            
+            <span class="article-category">[BLOG_CATEGORY]</span>
+            <h1>[BLOG_TITLE]</h1>
             <div class="article-meta">
                 <div class="article-meta-item">
                     <i class="far fa-calendar"></i>
-                    <span>January 10, 2025</span>
+                    <span>[BLOG_DATE]</span>
                 </div>
                 <div class="article-meta-item">
                     <i class="far fa-clock"></i>
-                    <span>5 min read</span>
+                    <span>[BLOG_READ_TIME] min read</span>
                 </div>
             </div>
         </div>
@@ -533,124 +494,38 @@
             <i class="fas fa-arrow-left"></i> Back to Blog
         </a>
 
-        <p>When it comes to choosing between electric and petrol motorbikes in Zambia, the numbers tell a compelling story. Electric motorbikes aren't just better for the environment—they're significantly more affordable to operate, saving riders up to 70% on fuel costs.</p>
-
-        <h2>The True Cost of Ownership</h2>
+        <!-- START YOUR BLOG CONTENT HERE -->
         
-        <p>Many riders focus only on the upfront purchase price, but the real cost of a motorbike extends far beyond the initial investment. Let's break down the actual costs of operating electric versus petrol motorbikes in Zambia.</p>
+        <p>[BLOG_INTRO_PARAGRAPH]</p>
 
-        <h3>Monthly Operating Costs Comparison</h3>
-        
-        <table class="comparison-table">
-            <thead>
-                <tr>
-                    <th>Cost Category</th>
-                    <th>Petrol Motorbike</th>
-                    <th>Electric Motorbike (Gaingo)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>Fuel/Energy</strong></td>
-                    <td>K1,500 - K2,000</td>
-                    <td>K450 - K600</td>
-                </tr>
-                <tr>
-                    <td><strong>Maintenance</strong></td>
-                    <td>K300 - K500</td>
-                    <td>K50 - K100</td>
-                </tr>
-                <tr>
-                    <td><strong>Oil Changes</strong></td>
-                    <td>K150 - K200</td>
-                    <td>K0</td>
-                </tr>
-                <tr>
-                    <td><strong>Repairs</strong></td>
-                    <td>K200 - K400</td>
-                    <td>K50 - K100</td>
-                </tr>
-                <tr>
-                    <td><strong>Total Monthly Cost</strong></td>
-                    <td><strong>K2,150 - K3,100</strong></td>
-                    <td><strong>K550 - K800</strong></td>
-                </tr>
-            </tbody>
-        </table>
+        <h2>[SECTION_HEADING_1]</h2>
+        <p>[SECTION_CONTENT_1]</p>
+
+        <h2>[SECTION_HEADING_2]</h2>
+        <p>[SECTION_CONTENT_2]</p>
 
         <div class="highlight-box">
-            <h3><i class="fas fa-calculator"></i> Annual Savings</h3>
-            <p>By switching to an electric motorbike with Gaingo's battery swapping, the average rider saves between <strong>K19,200 and K27,600 per year</strong>. That's enough to cover school fees, invest in your business, or save for the future.</p>
+            <h3>[HIGHLIGHT_TITLE]</h3>
+            <p>[HIGHLIGHT_CONTENT]</p>
         </div>
 
-        <h2>Why Electric is Cheaper</h2>
+        <h2>[SECTION_HEADING_3]</h2>
+        <p>[SECTION_CONTENT_3]</p>
 
-        <h3>1. Energy Efficiency</h3>
-        <p>Electric motors are 3-4 times more efficient than petrol engines. This means more of the energy you pay for actually goes into moving your motorbike, rather than being lost as heat and noise.</p>
-
-        <h3>2. No Fuel Price Volatility</h3>
-        <p>Petrol prices fluctuate constantly, often increasing without warning. With Gaingo's battery swapping, you pay a predictable rate that doesn't change with global oil prices.</p>
-
-        <h3>3. Minimal Maintenance</h3>
-        <p>Electric motorbikes have fewer moving parts than petrol bikes:</p>
         <ul>
-            <li>No oil changes required</li>
-            <li>No spark plugs to replace</li>
-            <li>No air filters to clean</li>
-            <li>No exhaust system repairs</li>
-            <li>Less brake wear (regenerative braking)</li>
-            <li>No clutch maintenance</li>
+            <li>[BULLET_POINT_1]</li>
+            <li>[BULLET_POINT_2]</li>
+            <li>[BULLET_POINT_3]</li>
         </ul>
 
-        <h3>4. Battery Swapping Advantage</h3>
-        <p>With Gaingo's battery swapping system, you never own the battery—the most expensive component of an electric vehicle. We handle all battery maintenance, replacement, and upgrades. You simply swap and go.</p>
+        <!-- END YOUR BLOG CONTENT HERE -->
 
-        <h2>Real-World Savings for Zambian Riders</h2>
-
-        <p>Let's look at a typical delivery rider in Lusaka who rides 100km per day:</p>
-
-        <p><strong>Petrol Motorbike:</strong></p>
-        <ul>
-            <li>Fuel consumption: ~2.5 liters per 100km</li>
-            <li>Daily fuel cost: K60-K75 (at K24-K30 per liter)</li>
-            <li>Monthly fuel cost: K1,800-K2,250</li>
-            <li>Plus maintenance: K650-K1,100</li>
-            <li><strong>Total monthly: K2,450-K3,350</strong></li>
-        </ul>
-
-        <p><strong>Electric Motorbike with Gaingo:</strong></p>
-        <ul>
-            <li>Energy consumption: ~1.5 kWh per 100km</li>
-            <li>Daily battery swap cost: K15-K20</li>
-            <li>Monthly energy cost: K450-K600</li>
-            <li>Plus minimal maintenance: K50-K100</li>
-            <li><strong>Total monthly: K500-K700</strong></li>
-        </ul>
-
-        <div class="highlight-box">
-            <h3><i class="fas fa-chart-line"></i> Monthly Savings: K1,950 - K2,650</h3>
-            <p>That's a <strong>74% reduction</strong> in operating costs! For a delivery rider, this means significantly higher take-home income every single month.</p>
-        </div>
-
-        <h2>The Environmental Bonus</h2>
-
-        <p>Beyond the financial savings, electric motorbikes produce zero emissions. Every kilometer you ride on an electric bike is a kilometer that doesn't contribute to air pollution in Zambia's cities. You save money while helping create cleaner air for your community.</p>
-
-        <h2>Making the Switch</h2>
-
-        <p>The math is clear: electric motorbikes with Gaingo's battery swapping system are dramatically more affordable than petrol bikes. With savings of up to 70% on operating costs, the switch to electric pays for itself quickly.</p>
-
-        <p>Whether you're a delivery rider, taxi operator, or daily commuter, electric motorbikes offer a smarter, more affordable way to get around Zambia.</p>
-
+        <!-- CALL TO ACTION -->
         <div class="cta-section">
-            <h3>Ready to Start Saving?</h3>
-            <p>Join thousands of Zambian riders who have already made the switch to affordable, reliable electric mobility.</p>
-            <a href="contact.html" class="btn">Get Started with Gaingo</a>
+            <h3>Ready to Go Electric?</h3>
+            <p>Join thousands of riders who have already made the switch to clean, affordable electric mobility.</p>
+            <a href="contact.html" class="btn">Get Started Today</a>
         </div>
-
-        <a href="blog.html" class="back-to-blog">
-            <i class="fas fa-arrow-left"></i> Back to Blog
-        </a>
     </article>
 
     <!-- FOOTER -->
@@ -683,7 +558,9 @@
         </div>
     </footer>
 
+    <!-- JAVASCRIPT -->
     <script>
+        // Hamburger menu toggle
         const hamburger = document.querySelector('.hamburger');
         const navLinks = document.querySelector('.nav-links');
         
@@ -693,6 +570,7 @@
                 navLinks.classList.toggle('active');
             });
             
+            // Close menu when clicking on a link
             document.querySelectorAll('.nav-links a').forEach(link => {
                 link.addEventListener('click', () => {
                     hamburger.classList.remove('active');

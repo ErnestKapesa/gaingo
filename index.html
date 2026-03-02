@@ -607,8 +607,11 @@
         }
         
         .parallax-image {
-            transition: transform 0.3s ease-out;
+            transition: transform 0.1s ease-out;
             will-change: transform;
+            display: block;
+            width: 100%;
+            height: auto;
         }
         
         /* FLOATING SOCIAL MEDIA BAR */
@@ -876,8 +879,8 @@
                 <p>Meet the entrepreneurs and delivery riders who've transformed their businesses with Gaingo. From taxi operators to food delivery services, they're saving money, earning more, and driving Zambia's clean energy future.</p>
                 <span class="highlight-stat">🚀 Join 500+ Active Riders</span>
             </div>
-            <div class="lifestyle-image-card parallax-image">
-                <img src="images/A.png" alt="Gaingo rider in action across Zambia">
+            <div class="lifestyle-image-card">
+                <img src="images/A.png" alt="Gaingo rider in action across Zambia" class="parallax-image">
             </div>
         </div>
     </section>
@@ -929,8 +932,8 @@
         
         <!-- IMAGE B: FEATURES VISUAL PROOF -->
         <div class="features-with-lifestyle">
-            <div class="lifestyle-side-image parallax-image">
-                <img src="images/B.png" alt="Electric mobility built for business">
+            <div class="lifestyle-side-image">
+                <img src="images/B.png" alt="Electric mobility built for business" class="parallax-image">
             </div>
             <div class="lifestyle-text">
                 <h2>Built for Zambian Roads</h2>
@@ -971,14 +974,14 @@
         </div>
         
         <!-- IMAGE C: IMPACT VISUAL PROOF -->
-        <div class="impact-visual parallax-image">
-            <img src="images/C.png" alt="Gaingo community impact across Zambia">
+        <div class="impact-visual">
+            <img src="images/C.png" alt="Gaingo community impact across Zambia" class="parallax-image">
         </div>
     </section>
 
     <!-- IMAGE D: JOIN THEM MOTIVATION -->
-    <div class="cta-motivation parallax-image">
-        <img src="images/D.png" alt="Join Zambia's electric mobility revolution">
+    <div class="cta-motivation">
+        <img src="images/D.png" alt="Join Zambia's electric mobility revolution" class="parallax-image">
     </div>
 
     <!-- CTA SECTION -->
@@ -1096,15 +1099,14 @@
         function updateParallax() {
             const parallaxImages = document.querySelectorAll('.parallax-image');
             
-            parallaxImages.forEach(image => {
-                const rect = image.getBoundingClientRect();
-                const scrolled = window.pageYOffset;
+            parallaxImages.forEach(img => {
+                const rect = img.getBoundingClientRect();
                 
                 // Only apply parallax when image is in viewport
                 if (rect.top < window.innerHeight && rect.bottom > 0) {
-                    const speed = 0.3;
+                    const speed = 0.15;
                     const yPos = -(rect.top * speed);
-                    image.style.transform = `translateY(${yPos}px)`;
+                    img.style.transform = `translateY(${yPos}px)`;
                 }
             });
             

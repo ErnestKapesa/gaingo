@@ -446,6 +446,171 @@
             color: rgba(255, 255, 255, 0.8);
         }
         
+        /* LIFESTYLE SCATTERED IMAGES */
+        .lifestyle-banner {
+            position: relative;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, rgba(45, 95, 63, 0.03), rgba(74, 155, 107, 0.03));
+            overflow: hidden;
+        }
+        
+        .lifestyle-banner-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .lifestyle-image-card {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .lifestyle-image-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .lifestyle-image-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 30px 80px rgba(45, 95, 63, 0.25);
+        }
+        
+        .lifestyle-image-card:hover img {
+            transform: scale(1.05);
+        }
+        
+        .lifestyle-text {
+            padding: 2rem;
+        }
+        
+        .lifestyle-text h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .lifestyle-text p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        
+        .lifestyle-text .highlight-stat {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-orange), var(--light-orange));
+            color: var(--white);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-top: 1rem;
+        }
+        
+        /* Floating lifestyle card - tilted */
+        .lifestyle-float {
+            position: relative;
+            max-width: 450px;
+            margin: 3rem auto;
+            transform: rotate(-2deg);
+            transition: all 0.5s ease;
+        }
+        
+        .lifestyle-float:hover {
+            transform: rotate(0deg) translateY(-15px);
+        }
+        
+        /* Side-by-side lifestyle integration */
+        .features-with-lifestyle {
+            max-width: 1400px;
+            margin: 3rem auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .lifestyle-side-image {
+            position: relative;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 25px 70px rgba(0,0,0,0.2);
+            transform: rotate(3deg);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .lifestyle-side-image:hover {
+            transform: rotate(0deg) scale(1.03);
+            box-shadow: 0 35px 90px rgba(45, 95, 63, 0.3);
+        }
+        
+        .lifestyle-side-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Impact visual proof */
+        .impact-visual {
+            position: relative;
+            max-width: 600px;
+            margin: 3rem auto 0;
+            transform: rotate(-1.5deg);
+            transition: all 0.5s ease;
+        }
+        
+        .impact-visual:hover {
+            transform: rotate(0deg) scale(1.02);
+        }
+        
+        .impact-visual img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(255, 159, 90, 0.3);
+        }
+        
+        /* CTA motivation image */
+        .cta-motivation {
+            position: relative;
+            max-width: 500px;
+            margin: 2rem auto 3rem;
+            transform: rotate(2deg);
+            transition: all 0.5s ease;
+        }
+        
+        .cta-motivation:hover {
+            transform: rotate(0deg) translateY(-10px);
+        }
+        
+        .cta-motivation img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 25px 70px rgba(0,0,0,0.25);
+            border: 4px solid var(--white);
+        }
+        
+        /* Parallax effect */
+        .parallax-wrapper {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .parallax-image {
+            transition: transform 0.3s ease-out;
+            will-change: transform;
+        }
+        
         /* FLOATING SOCIAL MEDIA BAR */
         .floating-social {
             position: fixed;
@@ -491,6 +656,25 @@
         
         /* MOBILE RESPONSIVE */
         @media (max-width: 968px) {
+            /* Lifestyle scattered images mobile */
+            .lifestyle-banner-content,
+            .features-with-lifestyle {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .lifestyle-float,
+            .lifestyle-side-image,
+            .impact-visual,
+            .cta-motivation {
+                transform: rotate(0deg);
+                max-width: 100%;
+            }
+            
+            .lifestyle-text h2 {
+                font-size: 2rem;
+            }
+            
             /* Move floating social to bottom on mobile */
             .floating-social {
                 left: 50%;
@@ -684,6 +868,20 @@
         </div>
     </section>
 
+    <!-- IMAGE A: REAL RIDERS BANNER -->
+    <section class="lifestyle-banner parallax-wrapper">
+        <div class="lifestyle-banner-content">
+            <div class="lifestyle-text">
+                <h2>Real Riders, Real Results</h2>
+                <p>Meet the entrepreneurs and delivery riders who've transformed their businesses with Gaingo. From taxi operators to food delivery services, they're saving money, earning more, and driving Zambia's clean energy future.</p>
+                <span class="highlight-stat">🚀 Join 500+ Active Riders</span>
+            </div>
+            <div class="lifestyle-image-card parallax-image">
+                <img src="images/A.png" alt="Gaingo rider in action across Zambia">
+            </div>
+        </div>
+    </section>
+
     <!-- FEATURES SECTION -->
     <section class="section">
         <div class="section-header">
@@ -728,6 +926,19 @@
                 <p>Zero emissions. Driving Zambia towards sustainable transportation.</p>
             </div>
         </div>
+        
+        <!-- IMAGE B: FEATURES VISUAL PROOF -->
+        <div class="features-with-lifestyle">
+            <div class="lifestyle-side-image parallax-image">
+                <img src="images/B.png" alt="Electric mobility built for business">
+            </div>
+            <div class="lifestyle-text">
+                <h2>Built for Zambian Roads</h2>
+                <p>Our electric motorbikes aren't just eco-friendly—they're engineered for the demands of Zambian transportation. Rugged, reliable, and ready for anything from city deliveries to rural routes.</p>
+                <p>Every bike comes with comprehensive support, maintenance packages, and our revolutionary battery swapping network that keeps you moving 24/7.</p>
+                <span class="highlight-stat">⚡ 100% Uptime Guarantee</span>
+            </div>
+        </div>
     </section>
 
     <!-- IMPACT SECTION -->
@@ -758,7 +969,17 @@
                 <div class="impact-label">Cost Savings vs Petrol</div>
             </div>
         </div>
+        
+        <!-- IMAGE C: IMPACT VISUAL PROOF -->
+        <div class="impact-visual parallax-image">
+            <img src="images/C.png" alt="Gaingo community impact across Zambia">
+        </div>
     </section>
+
+    <!-- IMAGE D: JOIN THEM MOTIVATION -->
+    <div class="cta-motivation parallax-image">
+        <img src="images/D.png" alt="Join Zambia's electric mobility revolution">
+    </div>
 
     <!-- CTA SECTION -->
     <section class="section" style="background: linear-gradient(135deg, var(--primary-green), var(--light-green)); color: var(--white); text-align: center;">
@@ -868,6 +1089,44 @@
                 });
             });
         }
+        
+        // Parallax Scroll Effect for Lifestyle Images
+        window.addEventListener('scroll', () => {
+            const parallaxImages = document.querySelectorAll('.parallax-image');
+            
+            parallaxImages.forEach(image => {
+                const rect = image.getBoundingClientRect();
+                const scrolled = window.pageYOffset;
+                const rate = scrolled * 0.05;
+                
+                // Only apply parallax when image is in viewport
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    image.style.transform = `translateY(${rate}px)`;
+                }
+            });
+        });
+        
+        // Fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = entry.target.style.transform.replace('translateY(30px)', 'translateY(0)');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all lifestyle elements
+        document.querySelectorAll('.lifestyle-image-card, .lifestyle-side-image, .impact-visual, .cta-motivation').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(el);
+        });
     </script>
 </body>
 </html>

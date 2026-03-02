@@ -1090,43 +1090,36 @@
             });
         }
         
-        // Parallax Scroll Effect for Lifestyle Images
-        window.addEventListener('scroll', () => {
+        // Smooth Parallax Scroll Effect for Lifestyle Images
+        let ticking = false;
+        
+        function updateParallax() {
             const parallaxImages = document.querySelectorAll('.parallax-image');
             
             parallaxImages.forEach(image => {
                 const rect = image.getBoundingClientRect();
                 const scrolled = window.pageYOffset;
-                const rate = scrolled * 0.05;
                 
                 // Only apply parallax when image is in viewport
                 if (rect.top < window.innerHeight && rect.bottom > 0) {
-                    image.style.transform = `translateY(${rate}px)`;
+                    const speed = 0.3;
+                    const yPos = -(rect.top * speed);
+                    image.style.transform = `translateY(${yPos}px)`;
                 }
             });
+            
+            ticking = false;
+        }
+        
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(updateParallax);
+                ticking = true;
+            }
         });
         
-        // Fade-in animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = entry.target.style.transform.replace('translateY(30px)', 'translateY(0)');
-                }
-            });
-        }, observerOptions);
-        
-        // Observe all lifestyle elements
-        document.querySelectorAll('.lifestyle-image-card, .lifestyle-side-image, .impact-visual, .cta-motivation').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-            observer.observe(el);
-        });
+        // Initial call
+        updateParallax();
     </script>
 </body>
 </html>

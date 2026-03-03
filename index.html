@@ -606,14 +606,6 @@
             overflow: hidden;
         }
         
-        .parallax-image {
-            transition: transform 0.1s ease-out;
-            will-change: transform;
-            display: block;
-            width: 100%;
-            height: auto;
-        }
-        
         /* FLOATING SOCIAL MEDIA BAR */
         .floating-social {
             position: fixed;
@@ -880,7 +872,7 @@
                 <span class="highlight-stat">🚀 Join 500+ Active Riders</span>
             </div>
             <div class="lifestyle-image-card">
-                <img src="images/A.png" alt="Gaingo rider in action across Zambia" class="parallax-image">
+                <img src="images/A.png" alt="Gaingo rider in action across Zambia">
             </div>
         </div>
     </section>
@@ -933,7 +925,7 @@
         <!-- IMAGE B: FEATURES VISUAL PROOF -->
         <div class="features-with-lifestyle">
             <div class="lifestyle-side-image">
-                <img src="images/B.png" alt="Electric mobility built for business" class="parallax-image">
+                <img src="images/B.png" alt="Electric mobility built for business">
             </div>
             <div class="lifestyle-text">
                 <h2>Built for Zambian Roads</h2>
@@ -975,13 +967,13 @@
         
         <!-- IMAGE C: IMPACT VISUAL PROOF -->
         <div class="impact-visual">
-            <img src="images/C.png" alt="Gaingo community impact across Zambia" class="parallax-image">
+            <img src="images/C.png" alt="Gaingo community impact across Zambia">
         </div>
     </section>
 
     <!-- IMAGE D: JOIN THEM MOTIVATION -->
     <div class="cta-motivation">
-        <img src="images/D.png" alt="Join Zambia's electric mobility revolution" class="parallax-image">
+        <img src="images/D.png" alt="Join Zambia's electric mobility revolution">
     </div>
 
     <!-- CTA SECTION -->
@@ -1084,7 +1076,6 @@
                 navLinks.classList.toggle('active');
             });
             
-            // Close menu when clicking a link
             document.querySelectorAll('.nav-links a').forEach(link => {
                 link.addEventListener('click', () => {
                     hamburger.classList.remove('active');
@@ -1092,36 +1083,6 @@
                 });
             });
         }
-        
-        // Smooth Parallax Scroll Effect for Lifestyle Images
-        let ticking = false;
-        
-        function updateParallax() {
-            const parallaxImages = document.querySelectorAll('.parallax-image');
-            
-            parallaxImages.forEach(img => {
-                const rect = img.getBoundingClientRect();
-                
-                // Only apply parallax when image is in viewport
-                if (rect.top < window.innerHeight && rect.bottom > 0) {
-                    const speed = 0.15;
-                    const yPos = -(rect.top * speed);
-                    img.style.transform = `translateY(${yPos}px)`;
-                }
-            });
-            
-            ticking = false;
-        }
-        
-        window.addEventListener('scroll', () => {
-            if (!ticking) {
-                window.requestAnimationFrame(updateParallax);
-                ticking = true;
-            }
-        });
-        
-        // Initial call
-        updateParallax();
     </script>
 </body>
 </html>
